@@ -10,11 +10,12 @@ function SignIn() {
   return (
     <div className="dark:bg-dark">
       <main className="flex justify-center drop-shadow-lg dark:bg-dark mt-5 mb-5">
-        <div className="flex justify-center border-2 border-gray-900/10 rounded-lg dark:bg-gray-800 p-8">
+        <div className="flex justify-center border-x-2 border-gray-900/10 rounded-lg dark:bg-gray-800 p-8">
+          <div>sdfa</div>
           <div>
             <form className="space-y-6">
               <div>
-                <div className="text-2xl text-amber-600 mb-5 flex justify-center">
+                <div className="text-2xl text-slate-600 mb-5 flex justify-center">
                   Sign In
                 </div>
                 <label className="block text-sm font-medium leading-6 text-gray-900 dark:text-slate-100">
@@ -27,7 +28,7 @@ function SignIn() {
                     type="email"
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
-                    className="block w-full dark:bg-slate-200/20 dark:text-slate-100 rounded-md py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-100"
+                    className="block w-full dark:bg-slate-200/20 dark:text-slate-100 rounded-md py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-100"
                   />
                 </div>
               </div>
@@ -39,7 +40,7 @@ function SignIn() {
                   <div className="text-sm">
                     <a
                       href="#"
-                      className="font-semibold text-amber-600 hover:text-amber-500"
+                      className="font-semibold text-slate-600 hover:text-slate-500"
                     >
                       Forgot Password?
                     </a>
@@ -52,7 +53,7 @@ function SignIn() {
                     type="password"
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
-                    className="block w-full rounded-md border-0 dark:bg-slate-200/20 dark:text-slate-100 py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-amber-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 dark:bg-slate-200/20 dark:text-slate-100 py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -60,7 +61,7 @@ function SignIn() {
                 <button
                   type="submit"
                   // onClick={handleLogin}
-                  className="flex w-full justify-center rounded-md bg-amber-600 px-3 py-1.5 mt-10 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600"
+                  className="flex w-full justify-center rounded-md bg-slate-600 px-3 py-1.5 mt-10 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600"
                 >
                   Sign In
                 </button>
@@ -71,7 +72,7 @@ function SignIn() {
                 Not a member yet?&nbsp;
                 <a
                   href="/register"
-                  className="font-semibold leading-6 text-l text-amber-600 hover:text-amber-500 ml-2 mr-2"
+                  className="font-semibold leading-6 text-l text-slate-600 hover:text-slate-500 ml-2 mr-2"
                 >
                   Sign Up and Explore The World of Wonders.
                 </a>
@@ -82,7 +83,7 @@ function SignIn() {
         </div>
       </main>
       <ToastContainer position={toast.POSITION.TOP_CENTER} />
-      {console.log(email, password)}
+      {/* {console.log(email, password)} */}
     </div>
   );
 }

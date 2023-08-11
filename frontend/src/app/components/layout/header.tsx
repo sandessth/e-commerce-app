@@ -4,10 +4,10 @@ import { PiSignOut } from "react-icons/Pi";
 import { BiSearch } from "react-icons/Bi";
 import { BsCart } from "react-icons/Bs";
 import { FiHeart } from "react-icons/Fi";
-function Header() {
+function NavBar() {
   return (
     <>
-      <div className="sticky top-0 z-50 bg-gradient-to-b from-blue-200 to-blue-100/50 backdrop-blur-sm px-3 ">
+      <div className="sticky top-0 z-50 bg-white px-3 py-2">
         <nav className="  px-2 px-5 ">
           <div className="flex justify-between items-center">
             <div>
@@ -104,4 +104,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default NavBar;
