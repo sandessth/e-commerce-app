@@ -1,10 +1,14 @@
 import React from "react";
 import Header from "./components/layout/header";
+import Header1 from "./components/layout/header1";
+import ProductList from "./components/layout/product-list";
 
 function Home() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
+      <Header1/>
+      <ProductList/><ProductList/><ProductList/><ProductList/>
     </>
   );
 }
