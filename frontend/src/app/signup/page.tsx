@@ -75,9 +75,9 @@ function SignUp() {
   return (
     <div className="dark:bg-dark">
       {/* <Header1 /> */}
-      <main className="flex justify-center drop-shadow-lg drop-shadow-lg dark:bg-dark mt-5 ">
+      <main className="flex justify-center drop-shadow-md dark:bg-dark mt-5 ">
         <div className="flex justify-center ">
-          <div className="w-3/4 border-2 border-gray-900/10 rounded-lg dark:bg-gray-800 p-8 ">
+          <div className="w-2/3 p-8 ">
             <form>
               {/* <div className="space-y-12"> */}
               <div className="border-b border-gray-900/10 pb-6">
@@ -90,8 +90,23 @@ function SignUp() {
                       Please complete all fields marked with asterisk (
                       <p className="text-red-600 text-sm">*</p>)
                     </p>
+                    <div className="sm:col-span-6">
+                    <label className="flex text-sm font-medium text-gray-900">
+                      Name&nbsp;<p className="text-red-500">*</p>
+                    </label>
+                    <div className="mt-2 mb-5">
+                      <input
+                        value={fName}
+                        onChange={(event) => setFname(event.target.value)}
+                        type="text"
+                        name="first-name"
+                        id="first-name"
+                        className="block dark:bg-slate-200/20 dark:text-slate-100 px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                  </div>
                     <div className="col-span-6 ">
-                      <label className="flex text-sm leading-6 text-gray-900 dark:text-slate-100 dark:text-slate-100">
+                      <label className="flex text-sm leading-6 text-gray-900 ">
                         Email address&nbsp;<p className="text-red-500">*</p>
                       </label>
                       <div className="mt-2">
@@ -113,16 +128,8 @@ function SignUp() {
                       </div>
                     </div>
                   </div>
-                  <div className="sm:col-span-6 text-xs dark:text-slate-100">
-                    Password must be at least 8 characters long and it should
-                    contain at least 1 letter, 1 digit, and 1 special character
-                    [!@#$%^&*].
-                  </div>
-                  <div className="sm:col-span-6 text-xs">
-                    {pError && (
-                      <p className="text-red-500 mr-auto ">{pError}</p>
-                    )}
-                  </div>
+                  
+                  
                   <div className="sm:col-span-3">
                     <label className="flex text-sm font-medium leading-6 text-gray-900 dark:text-slate-100 dark:text-slate-100">
                       Password&nbsp;<p className="text-red-500">*</p>
@@ -138,6 +145,7 @@ function SignUp() {
                         id="password"
                         className="block dark:bg-slate-200/20 dark:text-slate-100 w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-600 sm:text-sm sm:leading-6"
                       />
+                      
                     </div>
                   </div>
                   <div className="sm:col-span-3">
@@ -154,77 +162,21 @@ function SignUp() {
                         className="block dark:bg-slate-200/20 dark:text-slate-100 w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-600 sm:text-sm sm:leading-6"
                       />
                     </div>
+                  </div><div className="sm:col-span-6 text-xs">
+                    {pError && (
+                      <p className="text-red-500 mr-auto ">{pError}</p>
+                    )}
                   </div>
-                  <div className="sm:col-span-3">
-                    <label className="flex text-sm font-medium leading-6 text-gray-900 dark:text-slate-100 dark:text-slate-100">
-                      First Name&nbsp;<p className="text-red-500">*</p>
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        value={fName}
-                        onChange={(event) => setFname(event.target.value)}
-                        type="text"
-                        name="first-name"
-                        id="first-name"
-                        className="block dark:bg-slate-200/20 dark:text-slate-100 px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-600 sm:text-sm sm:leading-6"
-                      />
-                    </div>
+                  <div className="sm:col-span-6 text-xs dark:text-slate-100">
+                    Password must be at least 8 characters long and it should
+                    contain at least 1 letter, 1 digit, and 1 special character
+                    [!@#$%^&*].
                   </div>
+                  
 
-                  <div className="sm:col-span-3">
-                    <label className="flex text-sm font-medium leading-6 text-gray-900 dark:text-slate-100">
-                      Last Name
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        value={lName}
-                        onChange={(event) => setLname(event.target.value)}
-                        type="text"
-                        name="last-name"
-                        id="last-name"
-                        className="block dark:bg-slate-200/20 dark:text-slate-100 w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-600 sm:text-sm sm:leading-6"
-                      />
-                    </div>
-                  </div>
+                  
 
-                  <div className="sm:col-span-3">
-                    <label className="block text-sm font-medium leading-6 text-gray-900 dark:text-slate-100">
-                      Country (Disabled option)
-                    </label>
-                    <div className="mt-2">
-                      <select
-                        value={country}
-                        onChange={(event) => setCountry(event.target.value)}
-                        id="country"
-                        name="country"
-                        className="block w-full px-1 dark:bg-slate-200/20 dark:text-slate-100 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-slate-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                        // disabled
-                      >
-                        {Country.map((item) => (
-                          <option key={item.text}>{item.text}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="sm:col-span-3">
-                    <label className="block text-sm font-medium leading-6 text-gray-900 dark:text-slate-100">
-                      State
-                    </label>
-                    <div className="mt-2">
-                      <select
-                        // value={state}
-                        // onChange={(event) => setState(event.target.value)}
-                        id="state"
-                        name="state"
-                        className="block w-full px-1 dark:bg-slate-200/20 dark:text-slate-100 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-slate-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                      >
-                        {State.map((item) => (
-                          <option key={item.text}>{item.text}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>                 
+                                 
                 </div>
               </div>
               <div className="border-b border-gray-900/10 pb-5 mt-5">
@@ -247,17 +199,7 @@ function SignUp() {
                       </label>
                     </div>
                   </div>
-                  <div className="relative flex gap-x-3">
-                    <div className="flex h-6 items-center">
-                      <input
-                        id="candidates"
-                        name="candidates"
-                        type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-slate-600 focus:ring-slate-600"
-                      />
-                    </div>
-                   
-                  </div>
+                  
                   {/* </div> */}
                 </fieldset>
                 {/* </div> */}

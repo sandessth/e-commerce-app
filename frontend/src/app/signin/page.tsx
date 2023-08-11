@@ -8,10 +8,10 @@ function SignIn() {
   const [password, setPassword] = useState("");
 
   return (
-    <div className="dark:bg-dark">
-      <main className="flex justify-center drop-shadow-lg dark:bg-dark mt-5 mb-5">
-        <div className="flex justify-center border-x-2 border-gray-900/10 rounded-lg dark:bg-gray-800 p-8">
-          <div>sdfa</div>
+    <div>
+      <main className="flex justify-center drop-shadow-lg mt-5 mb-5">
+        <div className="flex justify-center m-5 p-5">
+          {/* <div>sdfa</div> */}
           <div>
             <form className="space-y-6">
               <div>
