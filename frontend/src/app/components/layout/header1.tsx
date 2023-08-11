@@ -1,22 +1,24 @@
 import Link from "next/link";
 import React from "react";
 import SearchBar from "./searchbar";
+import { PiSignOut } from "react-icons/Pi";
 
 function Header1() {
   return <div><header className="bg-slate-100 py-2 border-b">
   <div className="container max-w-screen-xl mx-auto px-4">
     <div className="flex flex-wrap items-center">
-      <div className="flex-shrink-0 mr-auto">
-        <p className="text-2xl font-bold">infamy</p>
-        {/* <a href="/">
+      <div className="flex items-center gap-3 flex-shrink-0 mr-auto">
+        {/* <p className="text-2xl font-bold">infamy</p> */}
+        <a href="/">
           <img
-            src="logo192.png"
+            src="https://api.dicebear.com/5.x/bottts-neutral/svg?seed=50000"
             style={{ height: "50px", width: "60px" }}
             height="40"
             width="120"
-            alt="BuyItNow"
+            alt="Infamy"
           />
-        </a> */}
+        </a>
+        <p className="text-2xl font-bold">infamy</p>
       </div>
       <SearchBar />
 
@@ -38,9 +40,14 @@ function Header1() {
           <span className="hidden lg:inline">Sign in</span>
         </Link>
         <Link href="/me">
-          <div className="flex items-center mb-4 space-x-3 mt-4 cursor-pointer">
+          <div className="flex items-center mb-4 space-x-3 mt-4 cursor-pointer group relative">
             
-            {/* <img className="w-10 h-10 rounded-full" src={"logo192.png"} /> */}
+            <div><img className="w-10 h-10 border-2 border-gray-500 hover:border-gray-400 rounded-full" src="https://api.dicebear.com/5.x/bottts-neutral/svg?seed=10000" />
+            
+                
+                
+              
+            </div>
             <div className="space-y-1 font-medium">
               <p>
                 San
@@ -48,8 +55,12 @@ function Header1() {
                   test@gmail.com
                 </time>
               </p>
-            </div>
+            </div> 
           </div>
+         
+          <div className="hidden text-sm font-normal p-1 rounded-lg text-white group-hover:block absolute top-8 right-0 bg-gray-500/80">
+                  SignOut
+                </div>
         </Link>
       </div>
 
