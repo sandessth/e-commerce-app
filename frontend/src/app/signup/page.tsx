@@ -1,38 +1,27 @@
 "use client";
 
+import axios from "axios";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import Header1 from "../../components/Nams-Layout/header";
-// import Footer1 from "../../components/Nams-Layout/footer";
-// import axios from "axios";
-// import { useNavigate } from "react-router-dom";
-// import { useTitle } from "../../hooks/use-title";
-import { Country } from "./country";
-import { State } from "./state";
 
 function SignUp() {
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
   const [fName, setFname] = useState("");
-  const [lName, setLname] = useState("");
   const [email, setEmail] = useState("");
   const [country, setCountry] = useState("");
   const [street, setStreet] = useState("");
-  // const [city, setCity] = useState("");
-  // const [state, setState] = useState("");
-  // const [zip, setZip] = useState("");
-  // const [about, setAbout] = useState("");
   const [pError, setPError] = useState("");
   const [eError, setEError] = useState("");
 
-  // const navigate = useNavigate();
+  const router = useRouter()
 
   const handleCancel = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault();
-    // navigate("/signin");
   };
 
   const handleSubmit = (
@@ -42,7 +31,6 @@ function SignUp() {
 
     const passwordFormat = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
     const emailFormat = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-    // const user = client.find((user) => email === user.email);
     if (!password || !password2 || !fName || !email) {
       toast.error("Please input all starred fields");
 
@@ -60,26 +48,23 @@ function SignUp() {
       toast.error("Confirmation password does not match.");
       return;
     }
-    // axios;
-    // .post("http://localhost:3000/signup", { email, password, fName })
-    // .then((response) => {
-    //   toast.success("Welcome");
-    //   localStorage.setItem("token", response.data.accessToken);
-    //   navigate("/signin");
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
+    axios
+    .post("http://localhost:4000/signup", { email, password, fName })
+    .then((response) => {
+      toast.success("Welcome");
+      localStorage.setItem("token", response.data.accessToken);
+      router.push("/signin");
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   };
-  // useTitle("Sign Up Page");
   return (
     <div className="dark:bg-dark">
-      {/* <Header1 /> */}
       <main className="flex justify-center drop-shadow-md dark:bg-dark mt-5 ">
         <div className="flex justify-center ">
           <div className="w-2/3 p-8 ">
             <form>
-              {/* <div className="space-y-12"> */}
               <div className="border-b border-gray-900/10 pb-6">
                 <div className=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                   <div className="sm:col-span-6 dark:text-slate-100">
@@ -180,9 +165,9 @@ function SignUp() {
                 </div>
               </div>
               <div className="border-b border-gray-900/10 pb-5 mt-5">
-                {/* <div className=" space-y-10"> */}
+               
                 <fieldset>
-                  {/* <div className=" space-y-6"> */}
+                  
                   <div className="relative flex gap-x-3">
                     <div className="flex h-6 items-center">
                       <input
@@ -200,11 +185,11 @@ function SignUp() {
                     </div>
                   </div>
                   
-                  {/* </div> */}
+                  
                 </fieldset>
-                {/* </div> */}
+               
               </div>
-              {/* </div> */}
+              
               <div className="mt-6 flex items-center justify-end gap-x-6">
                 <button
                   type="button"
@@ -226,7 +211,7 @@ function SignUp() {
         </div>
       </main>
       <ToastContainer position={toast.POSITION.TOP_CENTER} />
-      {/* <Footer1 /> */}
+      
     </div>
   );
 }
