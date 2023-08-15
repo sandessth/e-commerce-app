@@ -1,6 +1,11 @@
 {
-    "users": [
-      
-    ],
-    "product" : []
-  }
+  "users": [
+    {
+      "email": "san@gmail.com",
+      "password": "$2a$10$mmREbxgMogCTNi3sQtGrfuxlsRKDvsG15prrVgEWih/nYJdj2zdfq",
+      "fName": "Sandesh",
+      "id": 1
+    }
+  ],
+  "product": []
+}
