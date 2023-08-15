@@ -12,8 +12,7 @@ function SignUp() {
   const [fName, setFname] = useState("");
   const [lName, setLname] = useState("");
   const [email, setEmail] = useState("");
-  const [country, setCountry] = useState("");
-  const [street, setStreet] = useState("");
+  // const [country, setCountry] = useState("");s
   const [pError, setPError] = useState("");
   const [eError, setEError] = useState("");
 
@@ -167,16 +166,17 @@ function SignUp() {
                 </div>
               </div>
               <div className="border-b border-gray-900/10 pb-5 mt-5">
-                {/* <div className=" space-y-10"> */}
+              
                 <fieldset>
-                  {/* <div className=" space-y-6"> */}
+                  
                   <div className="relative flex gap-x-3">
                     <div className="flex h-6 items-center">
                       <input
                         id="comments"
                         name="comments"
                         type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-slate-600 focus:ring-slate-600"
+                        className="h-4 w-4 rounded border-gray-300 text-slate-600 focus:ring-slate-600" 
+                        
                       />
                     </div>
                     <div className="text-sm leading-6">
@@ -187,11 +187,11 @@ function SignUp() {
                     </div>
                   </div>
                   
-                  {/* </div> */}
+                  
                 </fieldset>
-                {/* </div> */}
+                
               </div>
-              {/* </div> */}
+              
               <div className="mt-6 flex items-center justify-end gap-x-6">
                 <button
                   type="button"
