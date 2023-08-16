@@ -4,7 +4,12 @@ import SearchBar from "./searchbar";
 import { PiSignOut } from "react-icons/Pi";
 
 function Header1() {
-  return <div><header className="bg-slate-100 py-2 border-b">
+  
+  console.log("header")
+  
+  return <>
+  <div>
+  <header className="bg-slate-100 py-2 border-b">
   <div className="container max-w-screen-xl mx-auto px-4">
     <div className="flex flex-wrap items-center">
       <div className="flex items-center gap-3 flex-shrink-0 mr-auto">
@@ -75,7 +80,9 @@ function Header1() {
       </div>
     </div>
   </div>
-</header></div>;
+</header>
+</div>
+</>
 }
 
 export default Header1;
