@@ -8,6 +8,7 @@ import axios from "axios";
 function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  console.log("sada")
 
   const router = useRouter()
 
@@ -115,6 +116,7 @@ function SignIn() {
         </div>
       </main>
       <ToastContainer position={toast.POSITION.TOP_CENTER} />
+      {/* {console.log(email, password)} */}
     </div>
   );
 }
