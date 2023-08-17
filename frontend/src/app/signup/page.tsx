@@ -11,7 +11,7 @@ function SignUp() {
   const [password2, setPassword2] = useState("");
   const [fName, setFname] = useState("");
   const [email, setEmail] = useState("");
-  const [country, setCountry] = useState("");
+  // const [country, setCountry] = useState("");
   const [street, setStreet] = useState("");
   const [pError, setPError] = useState("");
   const [eError, setEError] = useState("");

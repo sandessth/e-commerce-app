@@ -1,6 +1,6 @@
 export const getProductsData = async () => {
     try{
-        const productsData = await fetch("https://cdn.contentful.com/spaces/ovx9ig7z04nq/entries?access_token=S-J178ViLlAUXqZPzdX6nHtIb_p4y4Zk4r0sZBgZOcM&content_type=product")
+        const productsData = await fetch("https://cdn.contentful.com/spaces/ovx9ig7z04nq/entries?access_token=QG-IUEd2o4pCgWrtZOd-EoGHVt6siSzdmlGvctcqhRo&content_type=product")
     
     if (!productsData.ok) {
         console.log("Failed to load data");
@@ -12,4 +12,4 @@ export const getProductsData = async () => {
     } catch (err) {
       console.log(err);
 }
-}
+} 
