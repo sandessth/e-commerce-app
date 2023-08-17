@@ -18,42 +18,10 @@ function NavBar() {
                 <div className="flex text-2xl font-bold">infamy</div>
               </Link>
             </div>
+            
             {/* {searchSection && <Search setSearchSection={setSearchSection} />} */}
             <div className="flex justify-between items-center">
-              <div className="flex justify-between items-center gap-6">
-                <Link
-                  href="/blog"
-                  className="text-slate-900/80  hover:text-blue-500 hover:backdrop-lg group relative"
-                >
-                  New Arrivals
-                </Link>
-
-                <Link
-                  href="/blog"
-                  className="text-slate-900/80 hover:text-blue-500 hover:backdrop-lg group relative"
-                >
-                  Men
-                </Link>
-
-                <Link
-                  href="/blog"
-                  className="text-slate-900/80 hover:text-blue-500 hover:backdrop-lg group relative"
-                >
-                  Women
-                </Link>
-                <Link
-                  href="/blog"
-                  className="text-slate-900/80 hover:text-blue-500 hover:backdrop-lg group relative"
-                >
-                  Kids
-                </Link>
-                <Link
-                  href="/blog"
-                  className="text-slate-900/80 hover:text-blue-500 hover:backdrop-lg group relative"
-                >
-                  Sale
-                </Link>
-              </div>
+              
               <div
                 // onClick={() => setSearchSection(!searchSection)}
                 className="text-slate-900/80 text-xl hover:text-blue-500 hover:backdrop-lg group relative pl-16"

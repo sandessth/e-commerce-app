@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { Toaster } from 'react-hot-toast';
 
 function SignIn() {
   const [email, setEmail] = useState("");
@@ -28,15 +29,16 @@ function SignIn() {
       .post("http://localhost:4000/login", { email, password })
       .then((response) => {
         console.log(response);
-        toast.success("Welcome");
-        router.push("/");
+        toast('Here is your toast.')
+        
 
-        localStorage.setItem("session-token", response.data.accessToken);
+        localStorage.setItem("token", response.data.accessToken);
         localStorage.setItem("email", email);
+        router.push("/");
       })
       .catch((error) => {
-        console.log(error.response.data);
-        toast.error(error.response.data);
+        console.log(error);
+        toast.error(error);
       });
   };
   
@@ -98,6 +100,7 @@ function SignIn() {
                 >
                   Sign In
                 </button>
+                <Toaster/>
               </div>
             </form>
             <div className="sm:mx-auto sm:w-full sm:max-w-sm pt-6">

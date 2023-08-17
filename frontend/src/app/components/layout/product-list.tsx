@@ -15,14 +15,13 @@ const ProductList = async () => {
       const imageURL = productImage.fields.file.url;
       return (
       <div key={productsData.sys.id}>
-        <section className="py-12">
-          <div className="container max-w-screen-xl mx-auto px-4">
-            <div className="flex justify-center flex-col md:flex-row -mx-4">
+        <section className="my-5">
+          <div >
+            <div className="flex justify-center flex-col md:flex-row ">
                 <main className="md:w-2/3 lg:w-3/4 px-3">
-                  <article className="border border-gray-200 overflow-hidden bg-white shadow-sm rounded mb-5">
+                  <article className="border border-gray-200 overflow-hidden bg-white shadow-sm rounded">
                     <div className="flex flex-col md:flex-row md:justify-center">
                       <div className="flex justify-center p-3">
-                        {/* {console.log("asda ")} */}
                         <div className="flex md:justify-center"
                           style={{
                             
@@ -32,7 +31,7 @@ const ProductList = async () => {
                           <img
                             src={imageURL}
                             alt="product name"
-                            height="240"
+                            height="200"
                             width="240"
                           />
                         </div>

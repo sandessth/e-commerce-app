@@ -5,22 +5,22 @@ import React from "react";
 const Filters = async () => {
     const productsData = await getProductsData()
 
-  let queryParams;
+//   let queryParams;
 
-  function checkHandler(checkBoxType, checkBoxValue) {
-    if (typeof window !== "undefined") {
-      queryParams = new URLSearchParams(window.location.search);
-    }
+//   function checkHandler(checkBoxType, checkBoxValue) {
+//     if (typeof window !== "undefined") {
+//       queryParams = new URLSearchParams(window.location.search);
+//     }
 
-    if (typeof window !== "undefined") {
-      const value = queryParams.get(checkBoxType);
-      if (checkBoxValue === value) return true;
-      return false;
-    }
-  }
+//     if (typeof window !== "undefined") {
+//       const value = queryParams.get(checkBoxType);
+//       if (checkBoxValue === value) return true;
+//       return false;
+//     }
+//   }
 
   return (
-    <aside className="md:w-1/3 lg:w-1/4 px-4 mt-5">
+    <div className="md:w-2/3 px-4 mt-5">
       <a
         className="md:hidden mb-5  w-full text-center px-4 py-2 inline-block text-lg text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:text-blue-600"
         href="#"
@@ -70,7 +70,7 @@ const Filters = async () => {
                 type="checkbox"
                 value={item.fields.category}
                 className="h-4 w-4"
-                defaultChecked={checkHandler("category", "Electronics")}
+                // defaultChecked={checkHandler("category", "Electronics")}
               />
               <span className="ml-2 text-gray-500"> {item.fields.category} </span>
             </label>
@@ -113,7 +113,7 @@ const Filters = async () => {
           </li>
         </ul> */}
       </div>
-    </aside>
+    </div>
   );
 };
 
