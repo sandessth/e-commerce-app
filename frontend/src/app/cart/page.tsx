@@ -26,14 +26,14 @@ const Cart = () => {
                             <img src={"/logo192.png"} alt="Title" />
                           </div>
                         </div>
-                        <figcaption className="ml-3">
+                        {/* <figcaption className="ml-3">
                           <p>
                             <a href="#" className="hover:text-blue-600">
                               Product name
                             </a>
                           </p>
                           <p className="mt-1 text-gray-400"> Seller: Apple</p>
-                        </figcaption>
+                        </figcaption> */}
                       </figure>
                     </div>
                     <div className="w-24">

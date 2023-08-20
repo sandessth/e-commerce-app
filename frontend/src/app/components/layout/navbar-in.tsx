@@ -10,6 +10,8 @@ import { FiHeart } from "react-icons/Fi";
 function NavBarIn() {
 
     const router = useRouter();
+    const userEmail = localStorage.getItem("email")
+
 
     const HandleLogout = (event: { preventDefault: () => void }) => {
         event.preventDefault();
@@ -23,7 +25,7 @@ function NavBarIn() {
   
   <header className="bg-slate-100 py-2 border-b">
   <div className="mx-4">
-  <div className="flex justify-end items-center">
+  {/* <div className="flex justify-end items-center">
               
               <div
                 // onClick={() => setSearchSection(!searchSection)}
@@ -67,7 +69,7 @@ function NavBarIn() {
                   SignOut
                 </div>
               </Link>
-            </div>
+            </div> */}
     <div className="flex flex-wrap items-center">
       <div className="flex items-center gap-3 flex-shrink-0 mr-auto">
         {/* <p className="text-2xl font-bold">infamy</p> */}
@@ -114,7 +116,7 @@ function NavBarIn() {
               <p>
                 San
                 <time className="block text-sm text-gray-500 dark:text-gray-400">
-                  test@gmail.com
+                  {userEmail}
                 </time>
               </p>
             </div> 

@@ -5,7 +5,7 @@ import { getProductsData } from "@/app/lib/fetch-data";
 const ProductList = async () => {  
 
   const productsData = await getProductsData()
-  console.log(productsData)
+  console.log(productsData)  
 
   return <div>
     {productsData.items.map((item: any) => {

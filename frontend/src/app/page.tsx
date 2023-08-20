@@ -1,11 +1,13 @@
+
 import React from "react";
-import Header from "./components/layout/header";
-import Header1 from "./components/layout/header1";
+// import Header from "./components/layout/header";
+// import Header1 from "./components/layout/header1";
 import ProductList from "./components/layout/product-list";
+import ProductList1 from "./components/layout/product-list1"; 
 // import Filters from "./components/layout/filters";
 // import { getProductsData } from "./lib/fetch-data";
 
-async function Home() {
+function Home() {
   
   // const productsData = await getProductsData()
   // console.log(productsData)
@@ -14,7 +16,9 @@ async function Home() {
     <>
       
       {/* <Header/> */}
+      <ProductList1/>
       <ProductList/>
+
     </>
   );
 }

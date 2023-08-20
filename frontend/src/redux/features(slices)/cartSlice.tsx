@@ -1,17 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 type InitialState = {
-    items: unknown
-    status: unknown
+    
 }
 
 const initialState = {
-    items: [],
-    status: null,
+    cartItems: [],
+    cartTotalQuantity: 0,
+    cartTotalAmount: 0,
+
 } as InitialState
 
 const CartSlice = createSlice({
-    name: "products",
+    name: "cart",
     initialState,
     reducers: {
 

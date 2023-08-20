@@ -24,7 +24,7 @@ function NavBarOut() {
       <SearchBar />
 
       <div className="flex items-center space-x-3 ml-auto">
-        <Link
+        {/* <Link
           href="/cart"
           className="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
         >
@@ -32,7 +32,7 @@ function NavBarOut() {
           <span className="hidden lg:inline ml-1">
             Cart (<b>0</b>)
           </span>
-        </Link>
+        </Link> */}
         <Link
           href="/signin"
           className="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
@@ -40,7 +40,7 @@ function NavBarOut() {
           {/* <i className="text-gray-400 w-5 fa fa-user"></i> */}
           <span className="hidden lg:inline">Sign in</span>
         </Link>
-        <Link href="/me">
+        {/* <Link href="/me">
           <div className="flex items-center mb-4 space-x-3 mt-4 cursor-pointer group relative">
             
             <div><img className="w-10 h-10 border-2 border-gray-500 hover:border-gray-400 rounded-full" src="https://api.dicebear.com/5.x/bottts-neutral/svg?seed=10000" />
@@ -62,7 +62,7 @@ function NavBarOut() {
           <div className="hidden text-sm font-normal p-1 rounded-lg text-white group-hover:block absolute top-8 right-0 bg-gray-500/80">
                   SignOut
                 </div>
-        </Link>
+        </Link> */}
       </div>
 
       {/* <div className="lg:hidden ml-2">
