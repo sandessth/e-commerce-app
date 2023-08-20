@@ -60,14 +60,14 @@ function SignUp() {
     });
   };
   return (
-    <div className="dark:bg-dark">
+    <div>
       <main className="flex justify-center drop-shadow-md dark:bg-dark mt-5 ">
         <div className="flex justify-center ">
           <div className="w-2/3 p-8 ">
             <form>
               <div className="border-b border-gray-900/10 pb-6">
-                <div className=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                  <div className="sm:col-span-6 dark:text-slate-100">
+                <div className=" grid grid-cols-6 gap-x-6 gap-y-8 ">
+                  <div className="col-span-6">
                     <p className="text-2xl text-slate-600 mb-5 flex justify-center ">
                       Sign Up
                     </p>

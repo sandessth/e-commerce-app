@@ -17,7 +17,7 @@ function Home() {
       
       {/* <Header/> */}
       <ProductList1/>
-      <ProductList/>
+      {/* <ProductList/>   */}
 
     </>
   );
