@@ -127,14 +127,15 @@ const Cart = () => {
             <aside className="md:w-1/4">
               <article className="border border-gray-200 bg-white shadow-sm rounded mb-5 p-3 lg:p-5">
                 <ul className="mb-5">
-                  <li className="flex justify-between text-gray-600  mb-1">
-                    <span>Total price:</span>
-                    <span>${cart.cartTotalAmount}</span>
-                  </li>
-                  <li className="flex justify-between text-gray-600  mb-1">
+                <li className="flex justify-between text-gray-600  mb-1">
                     <span>Total Units:</span>
                     <span className="text-green-500">{cart.cartTotalQuantity} </span>
                   </li>
+                  <li className="flex justify-between text-gray-600  mb-1">
+                    <span>SubTotal:</span>
+                    <span>${cart.cartTotalAmount}</span>
+                  </li>
+                  
                   <li className="flex justify-between text-gray-600  mb-1">
                     <span>TAX:</span>
                     <span>$78</span>
