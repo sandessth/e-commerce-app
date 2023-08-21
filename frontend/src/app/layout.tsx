@@ -1,10 +1,11 @@
+
 import "./globals.css";
 // import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header1 from "./components/layout/header1";
 import { ProdProvider } from "@/redux/provider/provider";
 import Footer from "./components/layout/footer";
-// import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
         <ProdProvider>
         
           <Header1/>
+          {/* <ToastContainer/> */}
           {children}
           <Footer/>
           </ProdProvider>

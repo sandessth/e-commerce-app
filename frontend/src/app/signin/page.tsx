@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-// import { Toaster } from 'react-hot-toast';
 import 'react-toastify/dist/ReactToastify.css';
 
 function SignIn() {
@@ -116,8 +115,7 @@ function SignIn() {
           </div>
         </div>
       </main>
-      <ToastContainer/>
-      {/* {console.log(email, password)} */}
+      <ToastContainer position={toast.POSITION.TOP_CENTER}/>
     </div>
   );
 }

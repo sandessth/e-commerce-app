@@ -1,13 +1,33 @@
 "use client";
 
-import { useAppSelector } from "@/redux/store/hooks";
+import { decreaseItem, getTotal, increaseItem, removeFromCart } from "@/redux/features(slices)/cart/cartSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/store/hooks";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { BiArrowBack } from "react-icons/Bi";
+import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
 
 const Cart = () => {
   const cart = useAppSelector((state) => state.cart)
   console.log(cart)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getTotal())
+  }, [cart])
+
+  const handleRemoveFromCart = (cartItem) => {
+  dispatch(removeFromCart(cartItem))
+  }
+  const handleIncreaseItem = (cartItem) => {
+    dispatch(increaseItem(cartItem))
+    }
+
+    const handleDecreaseItem = (cartItem) => {
+      dispatch(decreaseItem(cartItem))
+      }
+  
   return (
     <>
       <div>
@@ -19,8 +39,8 @@ const Cart = () => {
                 href="/"
                 className=" text-slate-900/80 text-xl hover:text-blue-500 hover:backdrop-lg group relative"
               >
-                <div className="text-center text-md m-3 text-red-500">Looks like you haven't add any product to cart.</div>
-                <div className="flex justify-center m-3 items-center"><BiArrowBack /> Browse products</div>
+                <div className="text-center text-md m-3 text-gray-500">Your cart is currently empty.</div>
+                <div className="flex justify-center m-3 items-center text-gray-500 hover:text-gray-900"><BiArrowBack /> Start Shopping</div>
                 
               </Link>
           </>
@@ -28,20 +48,9 @@ const Cart = () => {
         ): (
           <div>
             <div>
-              
-            </div>
-          </div>
-        )}
-      </div>
-    </>
-  );
-};
-
-export default Cart;
-
-{/* <section className="py-5 sm:py-7 bg-blue-100">
+            <section className="py-5 sm:py-7 bg-blue-100">
         <div className="container max-w-screen-xl mx-auto px-4">
-          <h2 className="text-3xl font-semibold mb-2">5 Item(s) in Cart</h2>
+          <h2 className="text-2xl font-semibold mb-2">{cart.cartItems.length} items</h2>
         </div>
       </section>
 
@@ -50,22 +59,26 @@ export default Cart;
           <div className="flex flex-col md:flex-row gap-4">
             <main className="md:w-3/4">
               <article className="border border-gray-200 bg-white shadow-sm rounded mb-5 p-3 lg:p-5">
+                {cart.cartItems?.map(cartItem => (
+
+                
                 <div>
-                  <div className="flex flex-wrap lg:flex-row gap-5  mb-4">
-                    <div className="w-full lg:w-2/5 xl:w-2/4">
+                  <div className="flex flex-wrap lg:flex-row gap-5 mb-4 items-center">
+                    <div className="w-full lg:w-3/7 xl:w-2/4">
                       <figure className="flex leading-5">
                         <div>
                           <div className="block w-16 h-16 rounded border border-gray-200 overflow-hidden">
-                            <img src={"/logo192.png"} alt="Title" />
+                            <img src={cartItem.image} alt="Title" />
                           </div>
                         </div>
-                        {/* <figcaption className="ml-3">
+                        <figcaption className="ml-3">
                           <p>
                             <a href="#" className="hover:text-blue-600">
-                              Product name
+                            {cartItem.name}
                             </a>
                           </p>
-                          <p className="mt-1 text-gray-400"> Seller: Apple</p>
+                          <p className="mt-1 text-gray-400"> Color: {cartItem.color}</p>
+                          <p className="mt-1 text-gray-400"> Model: {cartItem.Model}</p>
                         </figcaption>
                       </figure>
                     </div>
@@ -74,18 +87,16 @@ export default Cart;
                         <button
                           data-action="decrement"
                           className=" bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none"
+                          onClick={() => handleDecreaseItem(cartItem)}
                         >
                           <span className="m-auto text-2xl font-thin">−</span>
                         </button>
-                        <input
-                          type="number"
-                          className="outline-none focus:outline-none text-center w-full bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-900  outline-none custom-input-number"
-                          name="custom-input-number"
-                          value={0}
-                          readOnly
-                        ></input>
+                        <div
+                          
+                          className="flex justify-center items-center w-full bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default text-gray-900 custom-input-number"
+                        >{cartItem.cartQuantity}</div>
                         <button
-                          data-action="increment"
+                          onClick={() => handleIncreaseItem(cartItem)}
                           className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer"
                         >
                           <span className="m-auto text-2xl font-thin">+</span>
@@ -94,24 +105,23 @@ export default Cart;
                     </div>
                     <div>
                       <div className="leading-5">
-                        <p className="font-semibold not-italic">$898</p>
+                        <p className="font-semibold not-italic">${cartItem.price * cartItem.cartQuantity}</p>
                         <small className="text-gray-400">
-                          {" "}
-                          $98 / per item{" "}
+                        ${cartItem.price} per product
                         </small>
                       </div>
                     </div>
                     <div className="flex-auto">
                       <div className="float-right">
-                        <a className="px-4 py-2 inline-block text-red-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 cursor-pointer">
+                        <button className="px-4 py-2 inline-block text-red-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 cursor-pointer" onClick={() => handleRemoveFromCart(cartItem)}>
                           Remove
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </div>
 
                   <hr className="my-4" />
-                </div>
+                </div>))}
               </article>
             </main>
             <aside className="md:w-1/4">
@@ -119,11 +129,11 @@ export default Cart;
                 <ul className="mb-5">
                   <li className="flex justify-between text-gray-600  mb-1">
                     <span>Total price:</span>
-                    <span>$98</span>
+                    <span>${cart.cartTotalAmount}</span>
                   </li>
                   <li className="flex justify-between text-gray-600  mb-1">
                     <span>Total Units:</span>
-                    <span className="text-green-500">7 (Units)</span>
+                    <span className="text-green-500">{cart.cartTotalQuantity} </span>
                   </li>
                   <li className="flex justify-between text-gray-600  mb-1">
                     <span>TAX:</span>
@@ -149,4 +159,13 @@ export default Cart;
             </aside>
           </div>
         </div>
-      </section> */}
+      </section>
+            </div>
+          </div>
+        )}
+      </div><ToastContainer position={toast.POSITION.TOP_CENTER}/>
+    </>
+  );
+};
+
+export default Cart;

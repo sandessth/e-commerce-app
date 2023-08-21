@@ -8,7 +8,21 @@
     }
   ],  
   "products": [
-      {
+    {
+      "id": 4,
+      "name": "MacBook Air 13.3 inch Laptop",
+      "description": "Powerful Performance - Take on everything from professional-quality editing to action-packed gaming with ease. The Apple M1 chip with an 8-core CPU delivers up to 3.5x faster performance than the previous generation while using way less power.",
+      "price": 799,
+      "category": "Laptop",
+      "seller": "Apple",
+      "stock": 6,
+      "image": "https://res.cloudinary.com/drohie0z8/image/upload/v1692382966/infamy/Screenshot_2023-08-18_at_11.17.21_AM_yghomf.png",
+      "rating": 5,
+      "in_stock": true,
+      "color": "new blue",
+      "Model": "MGN63LL/A"
+    },  
+    {
         "id": 1,
         "name": "Samsung Galaxy Fold 4",
         "description": "The Samsung Galaxy Z Fold 4 is is the successor of the Galaxy Z Fold 3 and it comes with 6.2-inch outer display and big 7.6-inch Dynamic AMOLED display when unfolded. Specs also include Qualcomm Snapdragon 8+ Gen 1 processor, 4400mAh battery and Triple camera setup on the back with 50MP main sensor.",
@@ -21,6 +35,20 @@
         "in_stock": true,
         "color": "space black",
         "Model": "SM-F936UZKAVZW"
+      },
+      {
+        "id": 8,
+        "name": "JBL - PartyBox On-The-Go",
+        "description": "Take your party anywhere and sing everywhere. From beach parties to festivals, the JBL PartyBox On-The-Go lets you see, hear and feel the beat. Turn it up loud with 100 watts of powerful JBL Pro Sound, synched to a dazzling light show. Access your favorite tunes with Bluetooth, USB, AUX and TWS (True Wireless Stereo) connectivity, grab a friend and sing your hearts out with the JBL wireless mics, or use the instrument input to play along. With a bottle opener, padded shoulder strap, rechargeable battery and IPX4 splash-proof protection, the JBL PartyBox On-The-Go has everything you need to get the party started—and take it with you.",
+        "price": 359,
+        "category": "Speaker",
+        "seller": "JBL",
+        "stock": 6,
+        "image": "https://res.cloudinary.com/drohie0z8/image/upload/v1692382966/infamy/Screenshot_2023-08-18_at_11.22.28_AM_vq5vmn.png",
+        "rating": 5,
+        "in_stock": true,
+        "color": "Black",
+        "Model": ""
       },
       {
         "id": 2,
