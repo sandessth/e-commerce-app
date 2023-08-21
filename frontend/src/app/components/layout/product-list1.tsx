@@ -16,7 +16,14 @@ function ProductList1 (){
     const dispatch = useDispatch()
 
     const HandleAddToCart = (products) => {
+      const token = localStorage.getItem("token");
+
+  if (token) {
         dispatch(addToCart(products))
+  }
+  else{
+    toast.error("Please signin to add products to cart.");
+  }
     }
     
     return isLoading ? (
@@ -26,7 +33,7 @@ function ProductList1 (){
     ) : ( 
         <>
         <div className="text-2xl flex justify-center m-3">Featured Products</div>
-        <div className="grid grid-cols-4 gap-2 m-4">
+        <div className="grid grid-cols-4 gap-10 m-10">
             
             
             {data?.map((products) => 
@@ -41,7 +48,7 @@ function ProductList1 (){
                 <div className="mx-5 mt-5 text-lg">${products.price}</div>
                 <div className="text-sm mx-5 text-green-500">Free Shipping</div>
                 <div className="mx-5 my-2 flex justify-between items-center">
-                    <Link href="/cart"
+                    <Link href="/"
                 className="text-slate-900/80 text-xl text-white hover:backdrop-lg group relative border border-black/10 px-16 py-2 rounded-lg bg-blue-600"
                 onClick={() => HandleAddToCart(products)}
               >
@@ -66,7 +73,7 @@ function ProductList1 (){
         
         </div>
         </div>
-        <ToastContainer position={toast.POSITION.TOP_CENTER} />
+        <ToastContainer position={toast.POSITION.TOP_CENTER}/>
         </>
     )
     
