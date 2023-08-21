@@ -70,8 +70,8 @@ function NavBarIn() {
                 </div>
               </Link>
             </div> */}
-    <div className="flex flex-wrap items-center">
-      <div className="flex items-center gap-3 flex-shrink-0 mr-auto">
+    <div className="flex flex-wrap items-center gap-2">
+      <Link href="/" className="mr-2"><div className="flex items-center gap-3 flex-shrink-0 mr-auto">
         {/* <p className="text-2xl font-bold">infamy</p> */}
         <a href="/">
           <img
@@ -83,7 +83,7 @@ function NavBarIn() {
           />
         </a>
         <p className="text-2xl font-bold">infamy</p>
-      </div>
+      </div></Link>
       <SearchBar />
 
       <div className="flex items-center space-x-3 ml-auto">

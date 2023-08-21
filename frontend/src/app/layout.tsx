@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Header1 from "./components/layout/header1";
 import { ProdProvider } from "@/redux/provider/provider";
 import Footer from "./components/layout/footer";
+// import { ToastContainer, toast } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         
         <ProdProvider>
+        
           <Header1/>
           {children}
           <Footer/>

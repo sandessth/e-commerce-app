@@ -1,7 +1,13 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
+
+type InitialState = {
+    
+}
 
 const initialState = {
-    cartItems: [],
+    cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) 
+    : [],
     cartTotalQuantity: 0,
     cartTotalAmount: 0,
 
@@ -18,13 +24,17 @@ const CartSlice = createSlice({
             if (itemIndex >= 0)
             {
                 state.cartItems[itemIndex].cartQuantity += 1
+                toast.info(`Added another ${action.payload.name} to cart`, 
+                // {position: "bottom-center"}
+                )
             }
             else
             {
-                const tempPorduct = {...action.payload, cartQuantity:1}
-                state.cartItems.push(action.payload)
+                const tempPorduct = {...action.payload, cartQuantity: 1}
+                state.cartItems.push(tempPorduct)
+                toast.info(`${action.payload.name} added to cart`)
             }
-            
+                localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
         },
     },
 
