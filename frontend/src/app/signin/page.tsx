@@ -4,12 +4,12 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { Toaster } from 'react-hot-toast';
+// import { Toaster } from 'react-hot-toast';
+import 'react-toastify/dist/ReactToastify.css';
 
 function SignIn() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  console.log("sada")
+  const [password, setPassword] = useState("")
 
   const router = useRouter()
 
@@ -26,19 +26,17 @@ function SignIn() {
     }
 
     axios
-      .post("http://localhost:4000/login", { email, password })
+      .post("http://localhost:4000/logind", { email, password })
       .then((response) => {
         console.log(response);
-        toast('Here is your toast.')
-        
-
+        toast.success("Signed in successfully.");
         localStorage.setItem("token", response.data.accessToken);
         localStorage.setItem("email", email);
         router.push("/");
       })
       .catch((error) => {
         console.log(error);
-        toast.error(error);
+        toast.error(error.data);
       });
   };
   
@@ -100,7 +98,7 @@ function SignIn() {
                 >
                   Sign In
                 </button>
-                <Toaster/>
+                
               </div>
             </form>
             <div className="sm:mx-auto sm:w-full sm:max-w-sm pt-6">
@@ -118,7 +116,7 @@ function SignIn() {
           </div>
         </div>
       </main>
-      <ToastContainer position={toast.POSITION.TOP_CENTER} />
+      <ToastContainer/>
       {/* {console.log(email, password)} */}
     </div>
   );

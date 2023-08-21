@@ -7,6 +7,8 @@ import Link from "next/link";
 import { BsCart } from "react-icons/Bs";
 import { FiHeart } from "react-icons/Fi";
 import { useDispatch } from "react-redux";
+import { ToastContainer, toast} from "react-toastify";
+
 
 function ProductList1 (){
     const {data, error, isLoading} = useGetAllProductsQuery()
@@ -39,8 +41,8 @@ function ProductList1 (){
                 <div className="mx-5 mt-5 text-lg">${products.price}</div>
                 <div className="text-sm mx-5 text-green-500">Free Shipping</div>
                 <div className="mx-5 my-2 flex justify-between items-center">
-                    <Link href="/"
-                className="text-slate-900/80 text-xl text-white hover:backdrop-lg group relative border border-black/10 px-20 py-2 rounded-lg bg-blue-600"
+                    <Link href="/cart"
+                className="text-slate-900/80 text-xl text-white hover:backdrop-lg group relative border border-black/10 px-16 py-2 rounded-lg bg-blue-600"
                 onClick={() => HandleAddToCart(products)}
               >
                 <BsCart />
@@ -63,7 +65,9 @@ function ProductList1 (){
             <div className="col-span-1">
         
         </div>
-        </div></>
+        </div>
+        <ToastContainer position={toast.POSITION.TOP_CENTER} />
+        </>
     )
     
 }

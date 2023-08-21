@@ -1,12 +1,45 @@
 "use client";
 
+import { useAppSelector } from "@/redux/store/hooks";
 import Link from "next/link";
 import React from "react";
+import { BiArrowBack } from "react-icons/Bi";
 
 const Cart = () => {
+  const cart = useAppSelector((state) => state.cart)
+  console.log(cart)
   return (
     <>
-      <section className="py-5 sm:py-7 bg-blue-100">
+      <div>
+        <div className="text-center text-2xl m-3">Your cart</div>
+        {cart.cartItems.length === 0 ? (
+          <>
+          
+          <Link
+                href="/"
+                className=" text-slate-900/80 text-xl hover:text-blue-500 hover:backdrop-lg group relative"
+              >
+                <div className="text-center text-md m-3 text-red-500">Looks like you haven't add any product to cart.</div>
+                <div className="flex justify-center m-3 items-center"><BiArrowBack /> Browse products</div>
+                
+              </Link>
+          </>
+          
+        ): (
+          <div>
+            <div>
+              
+            </div>
+          </div>
+        )}
+      </div>
+    </>
+  );
+};
+
+export default Cart;
+
+{/* <section className="py-5 sm:py-7 bg-blue-100">
         <div className="container max-w-screen-xl mx-auto px-4">
           <h2 className="text-3xl font-semibold mb-2">5 Item(s) in Cart</h2>
         </div>
@@ -33,7 +66,7 @@ const Cart = () => {
                             </a>
                           </p>
                           <p className="mt-1 text-gray-400"> Seller: Apple</p>
-                        </figcaption> */}
+                        </figcaption>
                       </figure>
                     </div>
                     <div className="w-24">
@@ -116,9 +149,4 @@ const Cart = () => {
             </aside>
           </div>
         </div>
-      </section>
-    </>
-  );
-};
-
-export default Cart;
+      </section> */}
