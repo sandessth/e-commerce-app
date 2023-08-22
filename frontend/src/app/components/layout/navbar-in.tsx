@@ -6,11 +6,13 @@ import { PiSignOut } from "react-icons/Pi";
 import { BiSearch } from "react-icons/Bi";
 import { BsCart } from "react-icons/Bs";
 import { FiHeart } from "react-icons/Fi";
+import { useAppSelector } from "@/redux/store/hooks";
 
 function NavBarIn() {
 
     const router = useRouter();
     const userEmail = localStorage.getItem("email")
+    const cart = useAppSelector((state) => state.cart)
 
 
     const HandleLogout = (event: { preventDefault: () => void }) => {
@@ -93,7 +95,7 @@ function NavBarIn() {
         >
           <i className="text-gray-400 w-5 fa fa-shopping-cart"></i>
           <span className="hidden lg:inline ml-1">
-            Cart (<b>0</b>)
+            Cart (<b>{cart.cartTotalQuantity}</b>)
           </span>
         </Link>
         <Link

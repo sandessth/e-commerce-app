@@ -31,7 +31,7 @@ const Cart = () => {
   return (
     <>
       <div>
-        <div className="text-center text-2xl m-3">Your cart</div>
+        {/* <div className="text-center text-2xl m-3">Your cart</div> */}
         {cart.cartItems.length === 0 ? (
           <>
           
@@ -48,9 +48,9 @@ const Cart = () => {
         ): (
           <div>
             <div>
-            <section className="py-5 sm:py-7 bg-blue-100">
+            <section className="mt-2 py-2 bg-blue-100">
         <div className="container max-w-screen-xl mx-auto px-4">
-          <h2 className="text-2xl font-semibold mb-2">{cart.cartItems.length} items</h2>
+          <h2 className="flex justify-center items-center text-xl my-2">Currently&nbsp;<p className="text-green-600">{cart.cartTotalQuantity} </p>&nbsp;items in your cart</h2>
         </div>
       </section>
 
@@ -138,11 +138,11 @@ const Cart = () => {
                   
                   <li className="flex justify-between text-gray-600  mb-1">
                     <span>TAX:</span>
-                    <span>$78</span>
+                    <span>${cart.cartTotalTax}</span>
                   </li>
                   <li className="text-lg font-bold border-t flex justify-between mt-3 pt-3">
                     <span>Total price:</span>
-                    <span>$898</span>
+                    <span>${cart.cartTotalAmount+cart.cartTotalTax}</span>
                   </li>
                 </ul>
 
@@ -164,7 +164,7 @@ const Cart = () => {
             </div>
           </div>
         )}
-      </div><ToastContainer position={toast.POSITION.TOP_CENTER}/>
+      </div><ToastContainer/>
     </>
   );
 };
