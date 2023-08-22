@@ -10,6 +10,7 @@ const initialState = {
     : [],
     cartTotalQuantity: 0,
     cartTotalAmount: 0,
+    cartTotalTax:0,
 
 } as InitialState
 
@@ -50,6 +51,7 @@ const CartSlice = createSlice({
             )
             state.cartItems[itemIndex].cartQuantity += 1
             localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
+            toast.info(`Added one more ${action.payload.name} to cart`)
         },
         decreaseItem(state, action) {
             const itemIndex = state.cartItems.findIndex(
@@ -70,20 +72,23 @@ const CartSlice = createSlice({
             localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
         },
         getTotal(state, action) {
-            let {total, quantity} = state.cartItems.reduce((cartTotal, cartItem) => {
+            let {total, quantity, tax} = state.cartItems.reduce((cartTotal, cartItem) => {
                 const {price, cartQuantity} = cartItem
                 const itemTotal = price * cartQuantity
-
+                const taxTotal = itemTotal * 0.15
                 cartTotal.total += itemTotal
                 cartTotal.quantity += cartQuantity
+                cartTotal.tax += taxTotal
 
                 return cartTotal
             },{
                 total: 0,
                 quantity: 0,
+                tax:0,
             })
             state.cartTotalQuantity = quantity
             state.cartTotalAmount = total
+            state.cartTotalTax = tax
         }
     },
 
