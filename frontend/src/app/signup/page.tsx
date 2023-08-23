@@ -16,7 +16,7 @@ function SignUp() {
   const [pError, setPError] = useState("");
   const [eError, setEError] = useState("");
 
-  const router = useRouter()
+  const router = useRouter();
 
   const handleCancel = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -49,15 +49,15 @@ function SignUp() {
       return;
     }
     axios
-    .post("http://localhost:4000/signup", { email, password, fName })
-    .then((response) => {
-      toast.success("Welcome");
-      localStorage.setItem("token", response.data.accessToken);
-      router.push("/signin");
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+      .post("http://localhost:4000/signup", { email, password, fName })
+      .then((response) => {
+        toast.success("Welcome");
+        // localStorage.setItem("token", response.data.accessToken);
+        router.push("/signin");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
   return (
     <div>
@@ -76,20 +76,20 @@ function SignUp() {
                       <p className="text-red-600 text-sm">*</p>)
                     </p>
                     <div className="sm:col-span-6">
-                    <label className="flex text-sm font-medium text-gray-900">
-                      Name&nbsp;<p className="text-red-500">*</p>
-                    </label>
-                    <div className="mt-2 mb-5">
-                      <input
-                        value={fName}
-                        onChange={(event) => setFname(event.target.value)}
-                        type="text"
-                        name="first-name"
-                        id="first-name"
-                        className="block dark:bg-slate-200/20 dark:text-slate-100 px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-600 sm:text-sm sm:leading-6"
-                      />
+                      <label className="flex text-sm font-medium text-gray-900">
+                        Name&nbsp;<p className="text-red-500">*</p>
+                      </label>
+                      <div className="mt-2 mb-5">
+                        <input
+                          value={fName}
+                          onChange={(event) => setFname(event.target.value)}
+                          type="text"
+                          name="first-name"
+                          id="first-name"
+                          className="block dark:bg-slate-200/20 dark:text-slate-100 px-1 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-600 sm:text-sm sm:leading-6"
+                        />
+                      </div>
                     </div>
-                  </div>
                     <div className="col-span-6 ">
                       <label className="flex text-sm leading-6 text-gray-900 ">
                         Email address&nbsp;<p className="text-red-500">*</p>
@@ -113,12 +113,10 @@ function SignUp() {
                       </div>
                     </div>
                   </div>
-                  
-                  
+
                   <div className="sm:col-span-3">
                     <label className="flex text-sm font-medium leading-6 text-gray-900 dark:text-slate-100 dark:text-slate-100">
                       Password&nbsp;<p className="text-red-500">*</p>
-                      
                     </label>
 
                     <div className="mt-2">
@@ -130,7 +128,6 @@ function SignUp() {
                         id="password"
                         className="block dark:bg-slate-200/20 dark:text-slate-100 w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-600 sm:text-sm sm:leading-6"
                       />
-                      
                     </div>
                   </div>
                   <div className="sm:col-span-3">
@@ -147,7 +144,8 @@ function SignUp() {
                         className="block dark:bg-slate-200/20 dark:text-slate-100 w-full px-1 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-600 sm:text-sm sm:leading-6"
                       />
                     </div>
-                  </div><div className="sm:col-span-6 text-xs">
+                  </div>
+                  <div className="sm:col-span-6 text-xs">
                     {pError && (
                       <p className="text-red-500 mr-auto ">{pError}</p>
                     )}
@@ -157,17 +155,10 @@ function SignUp() {
                     contain at least 1 letter, 1 digit, and 1 special character
                     [!@#$%^&*].
                   </div>
-                  
-
-                  
-
-                                 
                 </div>
               </div>
               <div className="border-b border-gray-900/10 pb-5 mt-5">
-               
                 <fieldset>
-                  
                   <div className="relative flex gap-x-3">
                     <div className="flex h-6 items-center">
                       <input
@@ -184,12 +175,9 @@ function SignUp() {
                       </label>
                     </div>
                   </div>
-                  
-                  
                 </fieldset>
-               
               </div>
-              
+
               <div className="mt-6 flex items-center justify-end gap-x-6">
                 <button
                   type="button"
@@ -211,7 +199,6 @@ function SignUp() {
         </div>
       </main>
       <ToastContainer position={toast.POSITION.TOP_CENTER} />
-      
     </div>
   );
 }

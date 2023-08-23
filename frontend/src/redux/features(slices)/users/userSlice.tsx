@@ -10,10 +10,10 @@ const initialState = {
   status: null,
 } as InitialState;
 
-const productsSlice = createSlice({
+const userSlice = createSlice({
   name: "products",
   initialState,
   reducers: {},
 });
 
-export default productsSlice.reducer;
+export default userSlice.reducer;
