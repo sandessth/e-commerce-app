@@ -168,7 +168,7 @@ const Cart = () => {
 
                           <li className="flex justify-between text-gray-600  mb-1">
                             <span>TAX:</span>
-                            <span>${Math.round(cart.cartTotalTax)}</span>
+                            <span>${cart.cartTotalTax.toFixed(2)}</span>
                           </li>
                           <li className="text-lg font-bold border-t flex justify-between mt-3 pt-3">
                             <span>Total price:</span>
