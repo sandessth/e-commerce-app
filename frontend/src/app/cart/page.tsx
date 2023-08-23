@@ -12,6 +12,7 @@ import React, { useEffect } from "react";
 import { BiArrowBack } from "react-icons/Bi";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
+import WishList from "./wishlist/wishlist";
 
 const Cart = () => {
   const cart = useAppSelector((state) => state.cart);
@@ -35,7 +36,7 @@ const Cart = () => {
 
   return (
     <>
-      <div>
+      <div className="min-h-screen">
         {/* <div className="text-center text-2xl m-3">Your cart</div> */}
         {cart.cartItems.length === 0 ? (
           <>
@@ -197,6 +198,7 @@ const Cart = () => {
           </div>
         )}
       </div>
+      <WishList />
       <ToastContainer />
     </>
   );

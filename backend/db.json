@@ -4,28 +4,47 @@
       "email": "san@gmail.com",
       "password": "$2a$10$InkJpnpeHPP5En/5BO/VWOQFgKPomA/s2KuvWLXC3PF8mkrSPkjMK",
       "fName": "Sandesh",
-      "id": 1
+      "id": 1,
+      "wishlist": []
     },
     {
       "email": "yogesh@gmai.com",
       "password": "$2a$10$lVPbSQQ2itMppzzE/Imb.eAD2gwQRgDBUjnAf6pHEKSyQvWmuiRoa",
       "fName": "Yogesh",
-      "id": 2
+      "id": 2,
+      "wishlist": []
     },
     {
       "email": "yogesh@gmail.com",
       "password": "$2a$10$7sLBNH0RME6uE0dgJtrMfeBxprnANRvqnQbJHr/w33dd.XAGdS5f.",
       "fName": "Yogesh",
-      "id": 3
+      "id": 3,
+      "wishlist": []
     },
     {
       "email": "momo@gmail.com",
       "password": "$2a$10$CtBczVaH65LB913yfHziGOvKQJ6HJ6r8Uh2.9jJmVWC7Al6bAAk36",
       "fName": "Momo",
-      "id": 4
+      "id": 4,
+      "wishlist": [
+        {
+          "id": 4,
+          "name": "MacBook Air 13.3 inch Laptop",
+          "description": "Powerful Performance - Take on everything from professional-quality editing to action-packed gaming with ease. The Apple M1 chip with an 8-core CPU delivers up to 3.5x faster performance than the previous generation while using way less power.",
+          "price": 799,
+          "category": "Laptop",
+          "seller": "Apple",
+          "stock": 6,
+          "image": "https://res.cloudinary.com/drohie0z8/image/upload/v1692382966/infamy/Screenshot_2023-08-18_at_11.17.21_AM_yghomf.png",
+          "rating": 5,
+          "in_stock": true,
+          "color": "new blue",
+          "Model": "MGN63LL/A"
+        }
+      ]
     }
   ],
-  "wishlist": [],
+
   "products": [
     {
       "id": 4,
