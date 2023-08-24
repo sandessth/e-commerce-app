@@ -36,7 +36,7 @@ const Cart = () => {
 
   return (
     <>
-      <div className="min-h-screen">
+      <div>
         {/* <div className="text-center text-2xl m-3">Your cart</div> */}
         {cart.cartItems.length === 0 ? (
           <>
