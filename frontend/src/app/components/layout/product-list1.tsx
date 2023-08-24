@@ -1,8 +1,12 @@
 "use client";
 import { addToCart } from "@/redux/features(slices)/cart/cartSlice";
-import { useGetAllProductsQuery } from "@/redux/features(slices)/products/productsApi";
+import {
+  useGetAllProductsQuery,
+  useGetProductQuery,
+} from "@/redux/features(slices)/products/productsApi";
 import { useAppDispatch } from "@/redux/store/hooks";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { BsCart } from "react-icons/Bs";
 import { FiHeart } from "react-icons/Fi";
 import { useDispatch } from "react-redux";
@@ -12,6 +16,7 @@ function ProductList1() {
   const { data, error, isLoading } = useGetAllProductsQuery();
   console.log(data);
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const HandleAddToCart = (products) => {
     const token = localStorage.getItem("token");
@@ -21,6 +26,10 @@ function ProductList1() {
     } else {
       toast.error("Please signin to add products to cart.");
     }
+  };
+
+  const HandleProduct = (id: number) => {
+    router.push(`/product/${id}`);
   };
 
   return isLoading ? (
@@ -35,12 +44,13 @@ function ProductList1() {
           <div
             key={products.id}
             className="mt-3 border border-black/20 rounded-lg"
+            onClick={() => HandleProduct(products.id)}
           >
             <div>
-              <span className="text-xl flex justify-center mt-3 mb-2">
+              <span className="text-xl flex justify-center p-3 border-b">
                 {products.name}
               </span>
-              <div className="text-sm text-slate-500 mx-5 px-2">
+              <div className="text-sm text-slate-500 mx-5 px-2 mt-2">
                 <div>Color: {products.color} </div>
                 <div>Model: {products.Model}</div>
               </div>

@@ -1,23 +1,22 @@
+"use clients";
 import { getProductsData } from "@/app/lib/fetch-data";
 import React from "react";
 // import StarRatings from "react-star-ratings";
 
-const Filters = async () => {
-    const productsData = await getProductsData()
+const Filters = () => {
+  //   let queryParams;
 
-//   let queryParams;
+  //   function checkHandler(checkBoxType, checkBoxValue) {
+  //     if (typeof window !== "undefined") {
+  //       queryParams = new URLSearchParams(window.location.search);
+  //     }
 
-//   function checkHandler(checkBoxType, checkBoxValue) {
-//     if (typeof window !== "undefined") {
-//       queryParams = new URLSearchParams(window.location.search);
-//     }
-
-//     if (typeof window !== "undefined") {
-//       const value = queryParams.get(checkBoxType);
-//       if (checkBoxValue === value) return true;
-//       return false;
-//     }
-//   }
+  //     if (typeof window !== "undefined") {
+  //       const value = queryParams.get(checkBoxType);
+  //       if (checkBoxValue === value) return true;
+  //       return false;
+  //     }
+  //   }
 
   return (
     <div className="md:w-2/3 px-4 mt-5">
@@ -59,29 +58,29 @@ const Filters = async () => {
       <div className="hidden md:block px-6 py-4 border border-gray-200 bg-white rounded shadow-sm">
         <h3 className="font-semibold mb-2">Category</h3>
 
-        <ul className="space-y-1">
-        {productsData.items.map((item: any) => {
+        {/* <ul className="space-y-1">
+          {productsData.items.map((item: any) => {
             return (
-                <div key={productsData.sys.id}>
+              <div key={productsData.sys.id}>
                 <li>
-                <label className="flex items-center">
-                <input
-                name="category"
-                type="checkbox"
-                value={item.fields.category}
-                className="h-4 w-4"
-                // defaultChecked={checkHandler("category", "Electronics")}
-              />
-              <span className="ml-2 text-gray-500"> {item.fields.category} </span>
-            </label>
-          </li>
-          
-                </div>
-            )
-        })}
-        
-          
-        </ul>
+                  <label className="flex items-center">
+                    <input
+                      name="category"
+                      type="checkbox"
+                      value={item.fields.category}
+                      className="h-4 w-4"
+                      // defaultChecked={checkHandler("category", "Electronics")}
+                    />
+                    <span className="ml-2 text-gray-500">
+                      {" "}
+                      {item.fields.category}{" "}
+                    </span>
+                  </label>
+                </li>
+              </div>
+            );
+          })}
+        </ul> */}
 
         {/* <hr className="my-4" />
 

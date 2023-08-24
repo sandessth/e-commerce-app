@@ -46,6 +46,7 @@ const CartSlice = createSlice({
         toast.info(`${action.payload.name} added to cart`);
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      console.log(state);
     },
     removeFromCart(state, action) {
       const cartItemAfterRemove = state.cartItems.filter(
@@ -70,7 +71,7 @@ const CartSlice = createSlice({
 
       if (state.cartItems[itemIndex].cartQuantity > 1) {
         state.cartItems[itemIndex].cartQuantity -= 1;
-        toast.info(`Decreased ${action.payload.name} from cart`);
+        toast.info(`Decreased one ${action.payload.name} from cart`);
       } else {
         const cartItemAfterRemove = state.cartItems.filter(
           (cartItem) => cartItem.id !== action.payload.id

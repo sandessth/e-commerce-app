@@ -42,9 +42,14 @@
           "Model": "MGN63LL/A"
         }
       ]
+    },
+    {
+      "email": "kaijoku@op.com",
+      "password": "$2a$10$iWnG2pqracHZ1.any2IrZ.U9a03f5kqqEqvx5QA8iYSu/HgdzWhIC",
+      "fName": "Luffy",
+      "id": 5
     }
   ],
-
   "products": [
     {
       "id": 4,

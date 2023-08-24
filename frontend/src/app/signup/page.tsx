@@ -22,6 +22,7 @@ function SignUp() {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault();
+    router.push("/signin");
   };
 
   const handleSubmit = (
