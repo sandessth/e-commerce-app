@@ -2,13 +2,10 @@ import Link from "next/link";
 import React from "react";
 import { getProductsData } from "@/app/lib/fetch-data";
 
-const ProductList = async () => {  
-
-  const productsData = await getProductsData()
-  console.log(productsData)  
-
-  return <div>
-    {productsData.items.map((item: any) => {
+const ProductList = (id) => {
+  return (
+    <div>
+      {/* {productsData.items.map((item: any) => {
       const productImage = productsData.includes.Asset.find(
         (img: any) => img.sys.id === item.fields.displayImage.sys.id
       )
@@ -44,14 +41,14 @@ const ProductList = async () => {
                           <div className="flex flex-wrap items-center space-x-2 mb-2">
                             <div className="ratings">
                               <div className="my-1">
-                                {/* <StarRatings
+                                <StarRatings
                                   rating={5}
                                   starRatedColor="#ffb829"
                                   numberOfStars={5}
                                   starDimension="18px"
                                   starSpacing="1px"
                                   name="rating"
-                                /> */}
+                                />
                               </div>
                             </div>
                             <b className="text-gray-300">•</b>
@@ -84,13 +81,12 @@ const ProductList = async () => {
             </div>
           </section>
             </div>
-            )})}
+            )})} */}
+    </div>
+  );
+};
 
-          </div>;
-          }
-
-          export default ProductList;
-
+export default ProductList;
 
 //           <section className="py-12">
 //             <div className="container max-w-screen-xl mx-auto px-4">
@@ -102,7 +98,7 @@ const ProductList = async () => {
 //                         {/* {console.log("asda ")} */}
 //                         <div className="flex md:justify-center"
 //                           style={{
-                            
+
 //                             position: "relative",
 //                           }}
 //                         >
@@ -117,7 +113,7 @@ const ProductList = async () => {
 //                       <div className="md:w-2/4">
 //                         <div className="p-4">
 //                           <Link href={`/`} className="hover:text-blue-600">
-//                           HP - 14" Laptop - Intel Celeron - 4GB Memory - 64GB eMMC - Indigo Blue 
+//                           HP - 14" Laptop - Intel Celeron - 4GB Memory - 64GB eMMC - Indigo Blue
 //                           </Link>
 //                           <div className="flex flex-wrap items-center space-x-2 mb-2">
 //                             <div className="ratings">
