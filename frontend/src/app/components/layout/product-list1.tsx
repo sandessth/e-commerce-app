@@ -4,6 +4,7 @@ import {
   useGetAllProductsQuery,
   useGetProductQuery,
 } from "@/redux/features(slices)/products/productsApi";
+import { addToWishList } from "@/redux/features(slices)/wishlist/wishListSlice";
 import { useAppDispatch } from "@/redux/store/hooks";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -18,6 +19,15 @@ function ProductList1() {
   const dispatch = useDispatch();
   const router = useRouter();
 
+  const HandleAddToWishList = (products) => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      dispatch(addToWishList(products));
+    } else {
+      toast.error("Please signin to add products to cart.");
+    }
+  };
   const HandleAddToCart = (products) => {
     const token = localStorage.getItem("token");
 
@@ -44,9 +54,8 @@ function ProductList1() {
           <div
             key={products.id}
             className="mt-3 border border-black/20 rounded-lg"
-            onClick={() => HandleProduct(products.id)}
           >
-            <div>
+            <div onClick={() => HandleProduct(products.id)}>
               <span className="text-xl flex justify-center p-3 border-b">
                 {products.name}
               </span>
@@ -54,9 +63,10 @@ function ProductList1() {
                 <div>Color: {products.color} </div>
                 <div>Model: {products.Model}</div>
               </div>
+
+              <img src={products.image} alt={products.name} className="p-5" />
+              <div className="mx-5 mt-5 text-lg">${products.price}</div>
             </div>
-            <img src={products.image} alt={products.name} className="p-5" />
-            <div className="mx-5 mt-5 text-lg">${products.price}</div>
             {/* <div className="text-sm mx-5 my-2 text-green-500">
               Free Shipping
             </div> */}
@@ -77,6 +87,7 @@ function ProductList1() {
               <Link
                 href="/"
                 className="text-slate-900/80 text-xl hover:text-blue-500 hover:backdrop-lg group relative"
+                onClick={() => HandleAddToWishList(products)}
               >
                 <FiHeart />
                 <div className="hidden text-sm p-1 rounded-lg text-white group-hover:block absolute top-8 right-0 bg-gray-500/80">

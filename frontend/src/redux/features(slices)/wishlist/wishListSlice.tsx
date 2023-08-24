@@ -1,17 +1,37 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
-type InitialState = {
-  items: unknown;
-};
+type InitialState = {};
 
 const initialState = {
-  items: [],
+  wishList: localStorage.getItem("wishlist")
+    ? JSON.parse(localStorage.getItem("wishlist"))
+    : [],
 } as InitialState;
 
-const wishListSlice = createSlice({
+const WishListSlice = createSlice({
   name: "wishlist",
   initialState,
-  reducers: {},
+  reducers: {
+    addToWishList(state, action) {
+      const itemIndex = state.wishList.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (itemIndex >= 0) {
+        toast.error(
+          `${action.payload.name} is already in your wishlist.`
+          // {position: "bottom-center"}
+        );
+      } else {
+        const tempProduct = { ...action.payload };
+        state.wishList.push(tempProduct);
+        toast.info(`${action.payload.name} added to wishlist`);
+      }
+      localStorage.setItem("wishlist", JSON.stringify(state.wishList));
+      console.log(state);
+    },
+  },
 });
 
-export default wishListSlice.reducer;
+export const { addToWishList } = WishListSlice.actions;
+export default WishListSlice.reducer;
