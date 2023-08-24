@@ -49,22 +49,22 @@ function ProductList1() {
   ) : (
     <>
       <div className="text-2xl flex justify-center m-3">Featured Products</div>
-      <div className="grid grid-cols-4 gap-10 m-10">
+      <div className="grid grid-cols-5 gap-10 m-10">
         {data?.map((products) => (
           <div
             key={products.id}
             className="mt-3 border border-black/20 rounded-lg"
           >
             <div onClick={() => HandleProduct(products.id)}>
-              <span className="text-xl flex justify-center p-3 border-b">
+              <span className="text-xl flex justify-center p-3">
                 {products.name}
               </span>
-              <div className="text-sm text-slate-500 mx-5 px-2 mt-2">
+
+              <img src={products.image} alt={products.name} className="p-5" />
+              <div className="text-sm text-slate-500 mx-5 mt-2">
                 <div>Color: {products.color} </div>
                 <div>Model: {products.Model}</div>
               </div>
-
-              <img src={products.image} alt={products.name} className="p-5" />
               <div className="mx-5 mt-5 text-lg">${products.price}</div>
             </div>
             {/* <div className="text-sm mx-5 my-2 text-green-500">
