@@ -13,7 +13,6 @@ import { BiArrowBack } from "react-icons/Bi";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import WishList from "./wishlist/wishlist";
-import Shipping from "./shipping/shipping";
 
 const Cart = () => {
   const cart = useAppSelector((state) => state.cart);
@@ -23,6 +22,8 @@ const Cart = () => {
   useEffect(() => {
     dispatch(getTotal());
   }, [cart]);
+
+  const handleContinue = () => {};
 
   const handleRemoveFromCart = (cartItem) => {
     dispatch(removeFromCart(cartItem));
@@ -184,12 +185,12 @@ const Cart = () => {
                           </li>
                         </ul>
 
-                        <Link
-                          href="/"
+                        <div
+                          onClick={handleContinue()}
                           className="px-4 py-3 mb-2 inline-block text-lg w-full text-center font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700 cursor-pointer"
                         >
                           Continue
-                        </Link>
+                        </div>
 
                         <Link
                           href="/"
@@ -207,7 +208,7 @@ const Cart = () => {
         )}
       </div>
       <WishList />
-      <Shipping />
+
       <ToastContainer />
     </>
   );
