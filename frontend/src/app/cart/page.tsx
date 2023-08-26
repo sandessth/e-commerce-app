@@ -23,6 +23,8 @@ const Cart = () => {
     dispatch(getTotal());
   }, [cart]);
 
+  const handleContinue = () => {};
+
   const handleRemoveFromCart = (cartItem) => {
     dispatch(removeFromCart(cartItem));
   };
@@ -70,6 +72,9 @@ const Cart = () => {
                   <div className="flex flex-col md:flex-row gap-4">
                     <main className="md:w-3/4">
                       <article className="border border-gray-200 bg-white shadow-sm rounded mb-5 p-3 lg:p-5">
+                        <h2 className="text-lg font-semibold mb-5 pb-3 border-b">
+                          Items in cart
+                        </h2>
                         {cart.cartItems?.map((cartItem) => (
                           <div>
                             <div className="flex flex-wrap lg:flex-row gap-5 mb-4 items-center">
@@ -155,12 +160,13 @@ const Cart = () => {
                     </main>
                     <aside className="md:w-1/4">
                       <article className="border border-gray-200 bg-white shadow-sm rounded mb-5 p-3 lg:p-5">
+                        <h2 className="text-lg font-semibold mb-5 pb-3 border-b">
+                          Summary
+                        </h2>
                         <ul className="mb-5">
                           <li className="flex justify-between text-gray-600  mb-1">
                             <span>Total Units:</span>
-                            <span className="text-green-500">
-                              {cart.cartTotalQuantity}{" "}
-                            </span>
+                            <span>{cart.cartTotalQuantity} </span>
                           </li>
                           <li className="flex justify-between text-gray-600  mb-1">
                             <span>SubTotal:</span>
@@ -168,10 +174,10 @@ const Cart = () => {
                           </li>
 
                           <li className="flex justify-between text-gray-600  mb-1">
-                            <span>TAX:</span>
+                            <span>TAX (15 % of Price):</span>
                             <span>${cart.cartTotalTax.toFixed(2)}</span>
                           </li>
-                          <li className="text-lg font-bold border-t flex justify-between mt-3 pt-3">
+                          <li className="text-lg border-t flex justify-between mt-3 pt-3">
                             <span>Total price:</span>
                             <span>
                               ${cart.cartTotalAmount + cart.cartTotalTax}
@@ -179,9 +185,12 @@ const Cart = () => {
                           </li>
                         </ul>
 
-                        <a className="px-4 py-3 mb-2 inline-block text-lg w-full text-center font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700 cursor-pointer">
+                        <div
+                          onClick={handleContinue()}
+                          className="px-4 py-3 mb-2 inline-block text-lg w-full text-center font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700 cursor-pointer"
+                        >
                           Continue
-                        </a>
+                        </div>
 
                         <Link
                           href="/"
@@ -199,6 +208,7 @@ const Cart = () => {
         )}
       </div>
       <WishList />
+
       <ToastContainer />
     </>
   );
