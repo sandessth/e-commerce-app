@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// type InitialState = {
-//   category: "string"
-// };
+type InitialState = {
+  category: unknown;
+};
 
 const initialState = {
-  category: "string",
-};
+  category: "",
+} as InitialState;
 
 const categorySlice = createSlice({
   name: "category",

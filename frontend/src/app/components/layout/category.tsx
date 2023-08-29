@@ -1,3 +1,5 @@
+"use client";
+
 import { useGetCategoryQuery } from "@/redux/features(slices)/category/catApi";
 import React from "react";
 

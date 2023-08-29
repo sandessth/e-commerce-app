@@ -215,7 +215,7 @@ const Cart = () => {
       </div>
       {/* <WishList /> */}
 
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </>
   );
 };
