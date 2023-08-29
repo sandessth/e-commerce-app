@@ -6,9 +6,12 @@ import userReducer from "../features(slices)/users/userSlice";
 import { userApi } from "../features(slices)/users/userApi";
 // import { wishListApi } from "../features(slices)/wishlist/wishlistApi";
 import wishListReducer from "../features(slices)/wishlist/wishListSlice";
+import categoryReducer from "../features(slices)/category/categorySlice";
+import { categoryApi } from "../features(slices)/category/catApi";
 
 export const store = configureStore({
   reducer: {
+    category: categoryReducer,
     products: productReducer,
     cart: cartReducer,
     wishList: wishListReducer,
@@ -17,7 +20,11 @@ export const store = configureStore({
     [userApi.reducerPath]: userApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(productsApi.middleware, userApi.middleware),
+    getDefaultMiddleware().concat(
+      productsApi.middleware,
+      userApi.middleware,
+      categoryApi.middleware
+    ),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
