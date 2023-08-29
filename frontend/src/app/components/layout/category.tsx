@@ -1,11 +1,16 @@
 "use client";
 
 import { useGetCategoryQuery } from "@/redux/features(slices)/category/catApi";
+import { useGetAllProductsQuery } from "@/redux/features(slices)/products/productsApi";
 import React from "react";
 
 function Category() {
   const { data, error, isLoading } = useGetCategoryQuery();
-  console.log(data);
+  const { data1, error1, isLoading1 } = useGetAllProductsQuery();
+  console.log(data1);
+  const HandleCat = (category) => {
+    console.log(data);
+  };
 
   return (
     <div>
@@ -39,19 +44,18 @@ function Category() {
         className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
       >
         {data?.map((category) => (
-          <ul
-            className="py-2 text-sm dark:text-gray-200"
-            aria-labelledby="dropdownHoverButton"
-          >
-            <li>
-              <a
-                href="#"
-                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >
-                {category}
-              </a>
-            </li>
-          </ul>
+          <div onClick={() => HandleCat(category)}>
+            <ul
+              className="py-2 text-sm dark:text-gray-200"
+              aria-labelledby="dropdownHoverButton"
+            >
+              <li>
+                <button className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                  {category}
+                </button>
+              </li>
+            </ul>
+          </div>
         ))}
       </div>
     </div>
