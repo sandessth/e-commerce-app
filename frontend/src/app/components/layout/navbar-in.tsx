@@ -4,7 +4,6 @@ import React from "react";
 import SearchBar from "./searchbar";
 import { useRouter } from "next/navigation";
 import { PiSignOut } from "react-icons/Pi";
-import { BiSearch } from "react-icons/Bi";
 import { BsCart } from "react-icons/Bs";
 import { FiHeart } from "react-icons/Fi";
 import { useAppSelector } from "@/redux/store/hooks";
@@ -98,6 +97,14 @@ function NavBarIn() {
                     </ul>
                   ))}
                 </div>
+                <Link
+                  href="/wishlist"
+                  // className="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
+                >
+                  <span className="hidden lg:inline text-2xl hover:text-blue-500">
+                    <FiHeart />
+                  </span>
+                </Link>
                 <Link
                   href="/cart"
                   // className="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"

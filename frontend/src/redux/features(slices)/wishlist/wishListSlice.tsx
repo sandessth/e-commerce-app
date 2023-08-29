@@ -18,10 +18,21 @@ const WishListSlice = createSlice({
         (item) => item.id === action.payload.id
       );
       if (itemIndex >= 0) {
-        toast.error(
-          `${action.payload.name} is already in your wishlist.`
-          // {position: "bottom-center"}
-        );
+        toast.error(`${action.payload.name} is already in your wishlist.`);
+      } else {
+        const tempProduct = { ...action.payload };
+        state.wishList.push(tempProduct);
+        toast.info(`${action.payload.name} added to wishlist`);
+      }
+      localStorage.setItem("wishList", JSON.stringify(state.wishList));
+      console.log(state);
+    },
+    checkWishList(state, action) {
+      const itemIndex = state.wishList.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (itemIndex >= 0) {
+        toast.error(`${action.payload.name} is already in your wishlist.`);
       } else {
         const tempProduct = { ...action.payload };
         state.wishList.push(tempProduct);
@@ -36,7 +47,7 @@ const WishListSlice = createSlice({
       );
       state.wishList = wishListAfterRemove;
       localStorage.setItem("wishList", JSON.stringify(state.wishList));
-      toast.info(`Removed ${action.payload.name} from wishlist`);
+      toast.error(`Removed ${action.payload.name} from wishlist`);
     },
   },
 });

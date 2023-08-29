@@ -49,7 +49,7 @@ function ProductList1() {
   ) : (
     <>
       <div className="text-2xl flex justify-center m-3">Featured Products</div>
-      <div className="grid grid-cols-5 gap-10 m-10">
+      <div className="grid grid-cols-5 gap-10 m-10 md:grid-cols-3">
         {data?.map((products) => (
           <div
             key={products.id}
