@@ -1,11 +1,16 @@
+"use client";
+
 // import { useGetAllwishlistQuery } from "@/redux/features(slices)/wishlist/wishlistApi";
 import { addToCart } from "@/redux/features(slices)/cart/cartSlice";
-import { removeFromWishList } from "@/redux/features(slices)/wishlist/wishListSlice";
+import {
+  addToWishList,
+  removeFromWishList,
+} from "@/redux/features(slices)/wishlist/wishListSlice";
 import { useAppSelector } from "@/redux/store/hooks";
 import Link from "next/link";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 function WishList() {
   const list = useAppSelector((state) => state.wishList);
@@ -42,8 +47,8 @@ function WishList() {
             href="/"
             className=" text-slate-900/80 text-xl hover:text-blue-500 hover:backdrop-lg group relative"
           >
-            <div className="text-center text-md m-3 text-gray-500 mb-24">
-              You haven't added any products to your wishlist.
+            <div className="text-center text-md m-3 text-gray-500 mb-24 h-screen">
+              You wishlist is empty.
             </div>
             {/* <div className="flex justify-center m-3 items-center text-gray-500 hover:text-gray-900">
                 <BiArrowBack /> Start Shopping
@@ -92,17 +97,16 @@ function WishList() {
                   </div>
                 </div>
                 <div
-                  href="/"
                   className="text-slate-900/80 text-white hover:backdrop-lg group relative border border-black/10 px-2 py-2 rounded-lg bg-blue-600"
                   onClick={() => HandleAddToCart(item)}
                 >
-                  <div className="flex justify-center items-center gap-2">
+                  <button className="flex justify-center items-center gap-2">
                     Add to cart
                     {/* <BsCart /> */}
-                  </div>
-                  <div className="hidden text-sm p-1 rounded-lg text-white group-hover:block absolute top-8 right-0 bg-gray-500/80">
+                  </button>
+                  {/* <div className="hidden text-sm p-1 rounded-lg text-white group-hover:block absolute top-8 right-0 bg-gray-500/80">
                     Add to Cart
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -111,6 +115,7 @@ function WishList() {
           ))}
         </div>
       )}
+      <ToastContainer />
     </div>
   );
 }

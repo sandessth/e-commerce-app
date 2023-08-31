@@ -12,7 +12,8 @@ import React, { useEffect } from "react";
 import { BiArrowBack } from "react-icons/Bi";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
-import WishList from "./wishlist/wishlist";
+import WishList from "../wishlist/page";
+import ProductList1 from "../components/layout/product-list1";
 
 const Cart = () => {
   const cart = useAppSelector((state) => state.cart);
@@ -42,17 +43,22 @@ const Cart = () => {
         {/* <div className="text-center text-2xl m-3">Your cart</div> */}
         {cart.cartItems.length === 0 ? (
           <>
-            <Link
-              href="/"
-              className=" text-slate-900/80 text-xl hover:text-blue-500 hover:backdrop-lg group relative"
-            >
-              <div className="text-center text-md m-3 text-gray-500">
-                Your cart is currently empty.
+            <div className="flex justify-center">
+              <div className="w-2/3">
+                <Link
+                  href="/"
+                  className=" text-slate-900/80 text-xl hover:text-blue-500 hover:backdrop-lg group relative "
+                >
+                  <div className="text-center text-md m-3 text-gray-500 mt-16">
+                    Your cart is currently empty.
+                  </div>
+                  <div className="flex justify-center m-3 items-center text-gray-500 hover:text-gray-900 mb-16">
+                    <BiArrowBack /> Start Shopping
+                  </div>
+                </Link>
+                <ProductList1 />
               </div>
-              <div className="flex justify-center m-3 items-center text-gray-500 hover:text-gray-900">
-                <BiArrowBack /> Start Shopping
-              </div>
-            </Link>
+            </div>
           </>
         ) : (
           <div>
@@ -67,7 +73,7 @@ const Cart = () => {
                 </div>
               </section>
 
-              <section className="py-10">
+              <section className="py-10 min-h-screen">
                 <div className="container max-w-screen-xl mx-auto px-4">
                   <div className="flex flex-col md:flex-row gap-4">
                     <main className="md:w-3/4">
@@ -207,9 +213,9 @@ const Cart = () => {
           </div>
         )}
       </div>
-      <WishList />
+      {/* <WishList /> */}
 
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </>
   );
 };

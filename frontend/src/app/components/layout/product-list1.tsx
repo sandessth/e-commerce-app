@@ -49,18 +49,15 @@ function ProductList1() {
   ) : (
     <>
       <div className="text-2xl flex justify-center m-3">Featured Products</div>
-      <div className="grid grid-cols-5 gap-10 m-10">
+      <div className="grid grid-cols-2 gap-3 m-10 md:grid-cols-3 lg:grid-cols-5">
         {data?.map((products) => (
-          <div
-            key={products.id}
-            className="mt-3 border border-black/20 rounded-lg"
-          >
+          <div key={products.id} className=" border border-black/20 rounded-lg">
             <div onClick={() => HandleProduct(products.id)}>
-              <span className="text-xl flex justify-center p-3">
+              <span className="text-lg flex justify-center p-3">
                 {products.name}
               </span>
 
-              <img src={products.image} alt={products.name} className="p-5" />
+              <img src={products.image} alt={products.name} className="p-2" />
               <div className="text-sm text-slate-500 mx-5 mt-2">
                 <div>Color: {products.color} </div>
                 <div>Model: {products.Model}</div>
@@ -71,21 +68,19 @@ function ProductList1() {
               Free Shipping
             </div> */}
             <div className="mx-5 mb-5 mt-2 flex justify-between items-center">
-              <Link
-                href="/"
+              <div
                 className="text-slate-900/80 text-white hover:backdrop-lg group relative border border-black/10 px-2 py-2 rounded-lg bg-blue-600"
                 onClick={() => HandleAddToCart(products)}
               >
-                <div className="flex justify-center items-center gap-2">
+                <button className="flex justify-center items-center gap-2">
                   Add to cart
                   <BsCart />
-                </div>
-                <div className="hidden text-sm p-1 rounded-lg text-white group-hover:block absolute top-8 right-0 bg-gray-500/80">
+                </button>
+                {/* <div className="hidden text-sm p-1 rounded-lg text-white group-hover:block absolute top-8 right-0 bg-gray-500/80">
                   Add to Cart
-                </div>
-              </Link>
-              <Link
-                href="/"
+                </div> */}
+              </div>
+              <div
                 className="text-slate-900/80 text-xl hover:text-blue-500 hover:backdrop-lg group relative"
                 onClick={() => HandleAddToWishList(products)}
               >
@@ -93,13 +88,13 @@ function ProductList1() {
                 <div className="hidden text-sm p-1 rounded-lg text-white group-hover:block absolute top-8 right-0 bg-gray-500/80">
                   Add to Wishlist
                 </div>
-              </Link>{" "}
+              </div>{" "}
             </div>
           </div>
         ))}
         <div className="col-span-1"></div>
       </div>
-      <ToastContainer position={toast.POSITION.TOP_CENTER} />
+      {/* <ToastContainer position={toast.POSITION.TOP_CENTER} /> */}
     </>
   );
 }
