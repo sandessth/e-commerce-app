@@ -15,7 +15,12 @@ interface Iitems {
   color: string;
   Model: string;
 }
-type InitialState = {};
+type InitialState = {
+  cartItems: Iitems[];
+  cartTotalQuantity: number;
+  cartTotalAmount: number;
+  cartTotalTax: number;
+};
 
 const initialState = {
   cartItems: localStorage.getItem("cartItems")
@@ -46,10 +51,10 @@ const CartSlice = createSlice({
         toast.info(`${action.payload.name} added to cart`);
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      // localStorage.setItem("cartItems Qty", state.cartQuantity);
+      localStorage.setItem("cartItems Qty", state.cartQuantity);
       console.log(state);
     },
-    removeFromCart(state, action) {
+    removeFromCart(state, action: PayloadAction<Iitems>) {
       const cartItemAfterRemove = state.cartItems.filter(
         (cartItem) => cartItem.id !== action.payload.id
       );
@@ -57,7 +62,7 @@ const CartSlice = createSlice({
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
       toast.info(`Removed ${action.payload.name} from cart`);
     },
-    increaseItem(state, action) {
+    increaseItem(state, action: PayloadAction<Iitems>) {
       const itemIndex = state.cartItems.findIndex(
         (cartItem) => cartItem.id === action.payload.id
       );
@@ -65,7 +70,7 @@ const CartSlice = createSlice({
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
       toast.info(`Added one more ${action.payload.name} to cart`);
     },
-    decreaseItem(state, action) {
+    decreaseItem(state, action: PayloadAction<Iitems>) {
       const itemIndex = state.cartItems.findIndex(
         (cartItem) => cartItem.id === action.payload.id
       );
@@ -82,7 +87,7 @@ const CartSlice = createSlice({
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
-    getTotal(state, action) {
+    getTotal(state, action: PayloadAction<Iitems>) {
       let { total, quantity, tax } = state.cartItems.reduce(
         (cartTotal, cartItem) => {
           const { price, cartQuantity } = cartItem;
