@@ -1,9 +1,6 @@
 "use client";
 import { addToCart } from "@/redux/features(slices)/cart/cartSlice";
-import {
-  useGetAllProductsQuery,
-  useGetProductQuery,
-} from "@/redux/features(slices)/products/productsApi";
+import { useGetAllProductsQuery } from "@/redux/features(slices)/products/productsApi";
 import { addToWishList } from "@/redux/features(slices)/wishlist/wishListSlice";
 import { useAppDispatch } from "@/redux/store/hooks";
 import Link from "next/link";

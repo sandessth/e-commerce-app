@@ -1,5 +1,4 @@
 "use client";
-import ProductList from "@/app/components/layout/product-list";
 import { useGetProductQuery } from "@/redux/features(slices)/products/productsApi";
 import { useParams } from "next/navigation";
 import React from "react";

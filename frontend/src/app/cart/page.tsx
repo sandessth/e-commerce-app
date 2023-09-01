@@ -14,17 +14,41 @@ import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import WishList from "../wishlist/page";
 import ProductList1 from "../components/layout/product-list1";
+import { useRouter } from "next/navigation";
+interface Iitems {
+  id: number;
+  name: String;
+  description: String;
+  price: number;
+  category: string;
+  seller: string;
+  stock: number;
+  image: string;
+  rating: number;
+  in_stock: boolean;
+  color: string;
+  Model: string;
+}
+type InitialState = {
+  cartItems: Iitems[];
+  cartTotalQuantity: number;
+  cartTotalAmount: number;
+  cartTotalTax: number;
+};
 
 const Cart = () => {
   const cart = useAppSelector((state) => state.cart);
   console.log(cart);
   const dispatch = useDispatch();
+  const router = useRouter();
 
   useEffect(() => {
     dispatch(getTotal());
   }, [cart]);
 
-  const handleContinue = () => {};
+  const handleContinue = (cart) => {
+    router.push("/checkout");
+  };
 
   const handleRemoveFromCart = (cartItem) => {
     dispatch(removeFromCart(cartItem));
@@ -192,7 +216,7 @@ const Cart = () => {
                         </ul>
 
                         <div
-                          onClick={handleContinue()}
+                          onClick={() => handleContinue(cart)}
                           className="px-4 py-3 mb-2 inline-block text-lg w-full text-center font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700 cursor-pointer"
                         >
                           Continue
