@@ -18,8 +18,8 @@ function NavBarIn() {
   const userEmail = localStorage.getItem("email");
   const cart = useAppSelector((state) => state.cart);
   // const { data, error, isLoading } = useGetAllUsersQuery();
-  const { data, error, isLoading } = useGetAllProductsQuery();
-  console.log(data);
+  // const { data, error, isLoading } = useGetAllProductsQuery();
+  // console.log(data);
 
   const HandleLogout = (event: { preventDefault: () => void }) => {
     event.preventDefault();

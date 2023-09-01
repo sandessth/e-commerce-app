@@ -2,14 +2,17 @@
 
 import { useGetCategoryQuery } from "@/redux/features(slices)/category/catApi";
 import { useGetAllProductsQuery } from "@/redux/features(slices)/products/productsApi";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 function Category() {
   const { data, error, isLoading } = useGetCategoryQuery();
-  const { data1, error1, isLoading1 } = useGetAllProductsQuery();
-  console.log(data1);
-  const HandleCat = (category) => {
+  const router = useRouter();
+  // const { data1, error1, isLoading1 } = useGetAllProductsQuery();
+  // console.log(data1);
+  const HandleCat = (category: string) => {
     console.log(data);
+    router.push(`/category/${category}`);
   };
 
   return (
