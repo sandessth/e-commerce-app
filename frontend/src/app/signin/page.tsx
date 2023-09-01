@@ -4,18 +4,18 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 function SignIn() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("")
+  const [password, setPassword] = useState("");
 
-  const router = useRouter()
+  const router = useRouter();
 
   const handleLogin = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    event.preventDefault()
+    event.preventDefault();
     if (!email) {
       toast.error("Please input email address.");
       return;
@@ -25,7 +25,7 @@ function SignIn() {
     }
 
     axios
-      .post("http://localhost:4000/logind", { email, password })
+      .post("http://localhost:4000/login", { email, password })
       .then((response) => {
         console.log(response);
         toast.success("Signed in successfully.");
@@ -34,11 +34,10 @@ function SignIn() {
         router.push("/");
       })
       .catch((error) => {
-        console.log(error);
-        toast.error(error.data);
+        console.log(error.response.data);
+        toast.error(error.response.data);
       });
   };
-  
 
   return (
     <div>
@@ -97,7 +96,6 @@ function SignIn() {
                 >
                   Sign In
                 </button>
-                
               </div>
             </form>
             <div className="sm:mx-auto sm:w-full sm:max-w-sm pt-6">
@@ -115,7 +113,7 @@ function SignIn() {
           </div>
         </div>
       </main>
-      <ToastContainer position={toast.POSITION.TOP_CENTER}/>
+      <ToastContainer position={toast.POSITION.TOP_CENTER} />
     </div>
   );
 }

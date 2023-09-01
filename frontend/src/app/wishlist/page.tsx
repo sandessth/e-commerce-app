@@ -33,11 +33,13 @@ function WishList() {
   };
 
   return (
-    <div className="m-4">
-      <section className="py-2 bg-blue-100 mb-4">
+    <div>
+      <section className="mt-2 py-2 bg-blue-100">
         <div className="container max-w-screen-xl mx-auto px-4">
           <h2 className="flex justify-center items-center text-xl my-2">
-            Your Wishlist
+            Currently&nbsp;
+            <p className="text-green-600">sdfsdf </p>
+            &nbsp;items in your wishlist
           </h2>
         </div>
       </section>
@@ -56,7 +58,7 @@ function WishList() {
           </Link>
         </>
       ) : (
-        <div>
+        <div className="py-10">
           {list.wishList?.map((item) => (
             <div className="flex justify-center">
               <div className="w-2/3 flex flex-wrap lg:flex-row gap-5 mb-4 items-center">

@@ -22,7 +22,7 @@ function ProductList1() {
     if (token) {
       dispatch(addToWishList(products));
     } else {
-      toast.error("Please signin to add products to cart.");
+      toast.error("Please signin to add products to wishlist.");
     }
   };
   const HandleAddToCart = (products) => {
@@ -91,7 +91,7 @@ function ProductList1() {
         ))}
         <div className="col-span-1"></div>
       </div>
-      {/* <ToastContainer position={toast.POSITION.TOP_CENTER} /> */}
+      <ToastContainer position={toast.POSITION.TOP_CENTER} />
     </>
   );
 }
