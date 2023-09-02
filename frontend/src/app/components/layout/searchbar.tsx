@@ -1,8 +1,21 @@
 "use client";
+import { useGetAllProductsQuery } from "@/redux/features(slices)/products/productsApi";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 function SearchBar() {
   const [key, setKey] = useState("");
+  const { data, error, isLoading } = useGetAllProductsQuery();
+  // console.log(data);
+  const router = useRouter();
+  // const filteredProducts = data.filter((product) =>
+  //   product.name.toLowerCase().includes(key.toLowerCase())
+  // );
+  console.log(key);
+
+  const HandleSearch = (key: string) => {
+    router.push(`/search-result/${key}`);
+  };
 
   return (
     <div>
@@ -12,11 +25,15 @@ function SearchBar() {
           type="text"
           placeholder="Enter your keyword"
           required
+          id="key"
+          name="search-key"
           value={key}
+          onChange={(event) => setKey(event.target.value)}
         />
         <button
           type="button"
           className="px-4 py-2 inline-block text-white border border-transparent bg-blue-700 text-white rounded-md hover:bg-blue-800"
+          onClick={() => HandleSearch(key)}
         >
           Search
         </button>

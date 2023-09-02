@@ -51,7 +51,7 @@ const CartSlice = createSlice({
         toast.info(`${action.payload.name} added to cart`);
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      localStorage.setItem("cartItems Qty", state.cartQuantity);
+      // localStorage.setItem("cartItems Qty", state.cartQuantity);
       console.log(state);
     },
     removeFromCart(state, action: PayloadAction<Iitems>) {

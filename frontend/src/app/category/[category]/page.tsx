@@ -1,12 +1,17 @@
 "use client";
+import { addToCart } from "@/redux/features(slices)/cart/cartSlice";
 import {
   useGetAllProductsQuery,
   useGetProductQuery,
 } from "@/redux/features(slices)/products/productsApi";
+import { addToWishList } from "@/redux/features(slices)/wishlist/wishListSlice";
 import { useParams } from "next/navigation";
+import { useRouter } from "next/router";
 import React from "react";
 import { BsCart } from "react-icons/Bs";
 import { FiHeart } from "react-icons/Fi";
+import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
 
 function CategoryPage() {
   const { category } = useParams();
@@ -14,6 +19,8 @@ function CategoryPage() {
   const { data, error, isLoading } = useGetAllProductsQuery();
   console.log(data);
   let filteredData = [];
+  const dispatch = useDispatch();
+  const router = useRouter();
 
   const HandleAddToWishList = (products) => {
     const token = localStorage.getItem("token");
@@ -25,13 +32,7 @@ function CategoryPage() {
     }
   };
   const HandleAddToCart = (products) => {
-    const token = localStorage.getItem("token");
-
-    if (token) {
-      dispatch(addToCart(products));
-    } else {
-      toast.error("Please signin to add products to cart.");
-    }
+    dispatch(addToCart(products));
   };
 
   const HandleProduct = (id: number) => {
@@ -98,7 +99,7 @@ function CategoryPage() {
         ))}
         <div className="col-span-1"></div>
       </div>
-      {/* <ToastContainer position={toast.POSITION.TOP_CENTER} /> */}
+      <ToastContainer position={toast.POSITION.TOP_CENTER} />
     </>
   );
 }

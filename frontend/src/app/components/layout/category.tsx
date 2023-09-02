@@ -11,7 +11,7 @@ function Category() {
   // const { data1, error1, isLoading1 } = useGetAllProductsQuery();
   // console.log(data1);
   const HandleCat = (category: string) => {
-    console.log(data);
+    // console.log(data);
     router.push(`/category/${category}`);
   };
 

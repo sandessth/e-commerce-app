@@ -2,8 +2,8 @@
 import { addToCart } from "@/redux/features(slices)/cart/cartSlice";
 import { useGetAllProductsQuery } from "@/redux/features(slices)/products/productsApi";
 import { addToWishList } from "@/redux/features(slices)/wishlist/wishListSlice";
-import { useAppDispatch } from "@/redux/store/hooks";
-import Link from "next/link";
+// import { useAppDispatch } from "@/redux/store/hooks";
+// import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { BsCart } from "react-icons/Bs";
 import { FiHeart } from "react-icons/Fi";
@@ -50,7 +50,7 @@ function ProductList1() {
         {data?.map((products) => (
           <div key={products.id} className=" border border-black/20 rounded-lg">
             <div onClick={() => HandleProduct(products.id)}>
-              <span className="text-lg flex justify-center p-3">
+              <span className="text-md flex justify-center p-3 lg:text-lg">
                 {products.name}
               </span>
 
@@ -91,7 +91,7 @@ function ProductList1() {
         ))}
         <div className="col-span-1"></div>
       </div>
-      <ToastContainer position={toast.POSITION.TOP_CENTER} />
+      {/* <ToastContainer position={toast.POSITION.TOP_CENTER} /> */}
     </>
   );
 }

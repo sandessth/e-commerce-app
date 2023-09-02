@@ -11,9 +11,9 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import { BiArrowBack } from "react-icons/Bi";
 import { useDispatch } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
-import WishList from "../wishlist/page";
-import ProductList1 from "../components/layout/product-list1";
+// import { ToastContainer, toast } from "react-toastify";
+// import WishList from "../wishlist/page";
+// import ProductList1 from "../components/layout/product-list1";
 import { useRouter } from "next/navigation";
 interface Iitems {
   id: number;
@@ -63,8 +63,14 @@ const Cart = () => {
 
   return (
     <>
-      <div>
-        {/* <div className="text-center text-2xl m-3">Your cart</div> */}
+      <div className="py-2">
+        <section className="py-2 bg-blue-100 mb-4 p-2">
+          <div className="container max-w-screen-xl mx-auto px-4">
+            <h2 className="flex justify-center items-center text-xl my-2">
+              Your Cart ({cart.cartTotalQuantity})
+            </h2>
+          </div>
+        </section>{" "}
         {cart.cartItems.length === 0 ? (
           <>
             <div className="flex justify-center">
@@ -73,21 +79,21 @@ const Cart = () => {
                   href="/"
                   className=" text-slate-900/80 text-xl hover:text-blue-500 hover:backdrop-lg group relative "
                 >
-                  <div className="text-center text-md m-3 text-gray-500 mt-16">
-                    Your cart is currently empty.
-                  </div>
-                  <div className="flex justify-center m-3 items-center text-gray-500 hover:text-gray-900 mb-16">
-                    <BiArrowBack /> Start Shopping
+                  <div className="border-2 flex justify-center items-center text-md m-3 text-gray-500 mb-24 h-96 flex-col">
+                    Your cart is empty.
+                    <div className="flex justify-center m-3 items-center text-gray-500 hover:text-gray-900">
+                      <BiArrowBack /> &nbsp;Start Shopping
+                    </div>
                   </div>
                 </Link>
-                <ProductList1 />
+                {/* <ProductList1 /> */}
               </div>
             </div>
           </>
         ) : (
           <div>
             <div>
-              <section className="mt-2 py-2 bg-blue-100">
+              {/* <section className="mt-2 py-2 bg-blue-100">
                 <div className="container max-w-screen-xl mx-auto px-4">
                   <h2 className="flex justify-center items-center text-xl my-2">
                     Currently&nbsp;
@@ -95,9 +101,9 @@ const Cart = () => {
                     &nbsp;items in your cart
                   </h2>
                 </div>
-              </section>
+              </section> */}
 
-              <section className="py-10 min-h-screen">
+              <section className=" min-h-screen">
                 <div className="container max-w-screen-xl mx-auto px-4">
                   <div className="flex flex-col md:flex-row gap-4">
                     <main className="md:w-3/4">

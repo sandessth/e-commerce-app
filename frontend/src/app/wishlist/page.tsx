@@ -10,6 +10,7 @@ import { useAppSelector } from "@/redux/store/hooks";
 import Link from "next/link";
 import React from "react";
 import { useDispatch } from "react-redux";
+import { BiArrowBack } from "react-icons/Bi";
 import { ToastContainer, toast } from "react-toastify";
 
 function WishList() {
@@ -33,32 +34,35 @@ function WishList() {
   };
 
   return (
-    <div>
-      <section className="mt-2 py-2 bg-blue-100">
+    <div className="py-2">
+      <section className="py-2 bg-blue-100 mb-4 p-2">
         <div className="container max-w-screen-xl mx-auto px-4">
           <h2 className="flex justify-center items-center text-xl my-2">
-            Currently&nbsp;
-            <p className="text-green-600">sdfsdf </p>
-            &nbsp;items in your wishlist
+            Your Wishlist
           </h2>
         </div>
       </section>
       {list.wishList.length === 0 ? (
         <>
-          <Link
-            href="/"
-            className=" text-slate-900/80 text-xl hover:text-blue-500 hover:backdrop-lg group relative"
-          >
-            <div className="text-center text-md m-3 text-gray-500 mb-24 h-screen">
-              You wishlist is empty.
+          <div className="flex justify-center">
+            <div className="w-2/3">
+              <Link
+                href="/"
+                className=" text-slate-900/80 text-xl hover:text-blue-500 hover:backdrop-lg group relative"
+              >
+                <div className="border-2 flex justify-center items-center text-md m-3 text-gray-500 mb-24 h-96 flex-col">
+                  You wishlist is empty.
+                  <div className="flex justify-center m-3 items-center text-gray-500 hover:text-gray-900">
+                    <BiArrowBack />
+                    &nbsp;Start Shopping
+                  </div>
+                </div>
+              </Link>
             </div>
-            {/* <div className="flex justify-center m-3 items-center text-gray-500 hover:text-gray-900">
-                <BiArrowBack /> Start Shopping
-              </div> */}
-          </Link>
+          </div>
         </>
       ) : (
-        <div className="py-10">
+        <div className="min-h-screen">
           {list.wishList?.map((item) => (
             <div className="flex justify-center">
               <div className="w-2/3 flex flex-wrap lg:flex-row gap-5 mb-4 items-center">
