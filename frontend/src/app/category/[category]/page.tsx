@@ -6,7 +6,7 @@ import {
 } from "@/redux/features(slices)/products/productsApi";
 import { addToWishList } from "@/redux/features(slices)/wishlist/wishListSlice";
 import { useParams } from "next/navigation";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { BsCart } from "react-icons/Bs";
 import { FiHeart } from "react-icons/Fi";
@@ -44,7 +44,7 @@ function CategoryPage() {
   } else if (error) {
     console.error("Error fetching data:", error);
   } else if (data) {
-    filteredData = data.filter((product) => product.category === category);
+    filteredData = data?.filter((product) => product.category === category);
     console.log(filteredData);
   }
   return isLoading ? (

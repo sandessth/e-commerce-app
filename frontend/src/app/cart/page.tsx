@@ -46,7 +46,7 @@ const Cart = () => {
     dispatch(getTotal());
   }, [cart]);
 
-  const handleContinue = (cart) => {
+  const handleContinue = () => {
     router.push("/checkout");
   };
 
@@ -216,13 +216,14 @@ const Cart = () => {
                           <li className="text-lg border-t flex justify-between mt-3 pt-3">
                             <span>Total price:</span>
                             <span>
-                              ${cart.cartTotalAmount + cart.cartTotalTax}
+                              {cart.cartTotalAfterTax}
+                              {/* ${cart.cartTotalAmount + cart.cartTotalTax} */}
                             </span>
                           </li>
                         </ul>
 
                         <div
-                          onClick={() => handleContinue(cart)}
+                          onClick={() => handleContinue()}
                           className="px-4 py-3 mb-2 inline-block text-lg w-full text-center font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700 cursor-pointer"
                         >
                           Continue

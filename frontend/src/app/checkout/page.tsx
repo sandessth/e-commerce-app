@@ -1,7 +1,10 @@
 "use client";
+import { useAppSelector } from "@/redux/store/hooks";
 import React from "react";
 
 function Checkout() {
+  // const cart = useAppSelector((state) => state.cart);
+  // console.log(cart);
   return (
     <div>
       <section className="mt-2 py-2 bg-blue-100">

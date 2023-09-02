@@ -8,6 +8,17 @@ function SearchResult() {
   console.log(key);
   const { data, error, isLoading } = useGetAllProductsQuery();
   console.log(data);
+  let filteredData = [];
+
+  if (isLoading) {
+    console.log("Loading data...");
+  } else if (error) {
+    console.error("Error fetching data:", error);
+  } else if (data) {
+    filteredData = data?.filter((item) => item.name.includes(key)) || [];
+    console.log(filteredData);
+  }
+
   return <div>SearchResult</div>;
 }
 
