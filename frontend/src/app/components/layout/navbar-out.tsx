@@ -23,7 +23,7 @@ function NavBarOut() {
                 </a>
                 <p className="text-2xl font-bold">infamy</p>
               </div>
-              <SearchBar />
+              {/* <SearchBar /> */}
 
               <div className="flex items-center space-x-3 ml-auto">
                 {/* <Link

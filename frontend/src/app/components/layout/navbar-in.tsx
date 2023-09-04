@@ -19,7 +19,7 @@ function NavBarIn() {
   const cart = useAppSelector((state) => state.cart);
   // const { data, error, isLoading } = useGetAllUsersQuery();
   // const { data, error, isLoading } = useGetAllProductsQuery();
-  // console.log(data);
+  console.log(cart);
 
   const HandleLogout = (event: { preventDefault: () => void }) => {
     event.preventDefault();

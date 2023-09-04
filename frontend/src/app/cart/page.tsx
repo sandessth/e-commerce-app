@@ -47,6 +47,7 @@ const Cart = () => {
   }, [cart]);
 
   const handleContinue = () => {
+    // console.log(cart);
     router.push("/checkout");
   };
 
@@ -70,7 +71,7 @@ const Cart = () => {
               Your Cart ({cart.cartTotalQuantity})
             </h2>
           </div>
-        </section>{" "}
+        </section>
         {cart.cartItems.length === 0 ? (
           <>
             <div className="flex justify-center">
@@ -149,7 +150,7 @@ const Cart = () => {
                                     onClick={() => handleDecreaseItem(cartItem)}
                                   >
                                     <span className="m-auto text-2xl font-thin">
-                                      −
+                                      -
                                     </span>
                                   </button>
                                   <div className="flex justify-center items-center w-full bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default text-gray-900 custom-input-number">

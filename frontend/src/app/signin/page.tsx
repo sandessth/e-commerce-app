@@ -12,6 +12,8 @@ function SignIn() {
 
   const router = useRouter();
 
+  const emailPattern = /@admin\.com$/;
+
   const handleLogin = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
@@ -22,25 +24,41 @@ function SignIn() {
     } else if (!password) {
       toast.error("Please enter your password.");
       return;
+    } else if (emailPattern.test(email)) {
+      console.log("Email has admin.com domain");
+      axios
+        .post("http://localhost:4000/login", { email, password })
+        .then((response) => {
+          console.log(response);
+          toast.success("Signed in successfully.");
+          localStorage.setItem("token", response.data.accessToken);
+          localStorage.setItem("email", email);
+          router.push("/admin");
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+          toast.error(error.response.data);
+        });
+    } else {
+      console.log("Email does not have admin.com domain");
+      axios
+        .post("http://localhost:4000/login", { email, password })
+        .then((response) => {
+          console.log(response);
+          toast.success("Signed in successfully.");
+          localStorage.setItem("token", response.data.accessToken);
+          localStorage.setItem("email", email);
+          router.push("/");
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+          toast.error(error.response.data);
+        });
     }
-
-    axios
-      .post("http://localhost:4000/login", { email, password })
-      .then((response) => {
-        console.log(response);
-        toast.success("Signed in successfully.");
-        localStorage.setItem("token", response.data.accessToken);
-        localStorage.setItem("email", email);
-        router.push("/");
-      })
-      .catch((error) => {
-        console.log(error.response.data);
-        toast.error(error.response.data);
-      });
   };
 
   return (
-    <div>
+    <div className="h-screen">
       <main className="flex justify-center drop-shadow-lg mt-5 mb-5">
         <div className="flex justify-center m-5 p-5">
           <div>

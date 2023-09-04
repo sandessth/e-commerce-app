@@ -15,7 +15,7 @@ function SearchResult() {
   } else if (error) {
     console.error("Error fetching data:", error);
   } else if (data) {
-    filteredData = data?.filter((item) => item.name.includes(key)) || [];
+    filteredData = data.filter((item) => item.name.includes(key)) || [];
     console.log(filteredData);
   }
 

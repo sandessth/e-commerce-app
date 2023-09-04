@@ -11,9 +11,9 @@ function SearchBar() {
   // const filteredProducts = data.filter((product) =>
   //   product.name.toLowerCase().includes(key.toLowerCase())
   // );
-  console.log(key);
 
   const HandleSearch = (key: string) => {
+    console.log(key);
     router.push(`/search-result/${key}`);
   };
 
