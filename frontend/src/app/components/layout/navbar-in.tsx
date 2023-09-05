@@ -38,15 +38,12 @@ function NavBarIn() {
               <Link href="/" className="mr-2">
                 <div className="flex items-center gap-3 flex-shrink-0 mr-auto">
                   {/* <p className="text-2xl font-bold">infamy</p> */}
-                  <a href="/">
+                  <Link href="/">
                     <img
-                      src="https://api.dicebear.com/5.x/bottts-neutral/svg?seed=50000"
-                      style={{ height: "50px", width: "60px" }}
-                      height="40"
-                      width="120"
-                      alt="Infamy"
+                      className="w-10 h-10 border-2 border-gray-500 hover:border-gray-400 rounded-xl"
+                      src="https://api.dicebear.com/5.x/bottts-neutral/svg?seed=100009"
                     />
-                  </a>
+                  </Link>
                   <p className="text-2xl font-bold">infamy</p>
                 </div>
               </Link>
