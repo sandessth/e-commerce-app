@@ -64,7 +64,7 @@ function ProductList1() {
             {/* <div className="text-sm mx-5 my-2 text-green-500">
               Free Shipping
             </div> */}
-            <div className="mx-5 mb-5 mt-2 flex justify-between items-center">
+            <div className="mx-5 mb-5 mt-2 flex justify-between items-center flex-wrap">
               <div
                 className="text-slate-900/80 text-white hover:backdrop-lg group relative border border-black/10 px-2 py-2 rounded-lg bg-blue-600"
                 onClick={() => HandleAddToCart(products)}

@@ -53,7 +53,9 @@ function CategoryPage() {
     <div className="flex justify-center text-2xl m-2 mt-4">error loading</div>
   ) : (
     <>
-      <div className="text-2xl flex justify-center m-3">Featured Products</div>
+      <div className="text-2xl flex justify-center m-3 mt-9">
+        Top searches for {category}
+      </div>
       <div className="grid grid-cols-2 gap-3 m-10 md:grid-cols-3 lg:grid-cols-5">
         {filteredData?.map((products) => (
           <div key={products.id} className=" border border-black/20 rounded-lg">
@@ -72,7 +74,7 @@ function CategoryPage() {
             {/* <div className="text-sm mx-5 my-2 text-green-500">
               Free Shipping
             </div> */}
-            <div className="mx-5 mb-5 mt-2 flex justify-between items-center">
+            <div className="mx-5 mb-5 mt-2 flex justify-between items-center flex-wrap">
               <div
                 className="text-slate-900/80 text-white hover:backdrop-lg group relative border border-black/10 px-2 py-2 rounded-lg bg-blue-600"
                 onClick={() => HandleAddToCart(products)}
