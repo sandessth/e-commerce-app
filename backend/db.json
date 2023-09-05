@@ -155,7 +155,24 @@
       "in_stock": false,
       "color": "rose gold",
       "Model": "MGN63LL/A"
+    },
+    {
+      "name": "LG - 65” Class UQ75 Series ",
+      "description": "An excellent large screen TV for a great room, family room, or bonus room. LG technology makes it so user-friendly I am not technically inclined at all. And I have no problem navigating through commands or with the remote. The picture and sound are crystal clear. I’ve had this TV for about a month and I’m so comfortable with that that I’m even confident enough to change the sound quality or picture quality as I seat fit. Not bad for an over 60 year old gal. The price is right go ahead and get yourself a 65 inch TV!",
+      "price": "449",
+      "category": "SmartTV",
+      "seller": "LG",
+      "stock": "12",
+      "image": "https://res.cloudinary.com/drohie0z8/image/upload/v1693888590/infamy/Screenshot_2023-09-04_at_9.36.19_PM_cyd6nf.png",
+      "color": "Black",
+      "model": "UQ75",
+      "id": 9
     }
   ],
-  "category": ["Laptop", "Smartphone", "Speaker", "SmartTV"]
+  "category": [
+    "Laptop",
+    "Smartphone",
+    "Speaker",
+    "SmartTV"
+  ]
 }
