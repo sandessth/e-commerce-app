@@ -10,17 +10,18 @@ function NavBarOut() {
         <header className="bg-slate-100 py-2 border-b">
           <div className="mx-4">
             <div className="flex flex-wrap items-center">
-              <div className="flex items-center gap-3 flex-shrink-0 mr-auto">
+              <div className="flex items-center gap-3 mr-auto">
                 {/* <p className="text-2xl font-bold">infamy</p> */}
-                <a href="/">
+
+                <Link
+                  href="/"
+                  // className="w-10 h-10 border-2 border-gray-500 hover:border-gray-400 rounded-full"
+                >
                   <img
-                    src="https://api.dicebear.com/5.x/bottts-neutral/svg?seed=50009"
-                    style={{ height: "50px", width: "60px" }}
-                    height="40"
-                    width="120"
-                    alt="Infamy"
+                    className="w-10 h-10 border-2 border-gray-500 hover:border-gray-400 rounded-xl"
+                    src="https://api.dicebear.com/5.x/bottts-neutral/svg?seed=500009"
                   />
-                </a>
+                </Link>
                 <p className="text-2xl font-bold">infamy</p>
               </div>
               {/* <SearchBar /> */}
