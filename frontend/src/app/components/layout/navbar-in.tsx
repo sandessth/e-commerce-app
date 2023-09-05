@@ -19,14 +19,14 @@ function NavBarIn() {
   const cart = useAppSelector((state) => state.cart);
   // const { data, error, isLoading } = useGetAllUsersQuery();
   // const { data, error, isLoading } = useGetAllProductsQuery();
-  // console.log(data);
+  console.log(cart);
 
   const HandleLogout = (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     localStorage.removeItem("token");
     localStorage.removeItem("email");
-    localStorage.removeItem("cartItems");
+    // localStorage.removeItem("cartItems");
     router.push("/signin");
   };
   return (
@@ -58,7 +58,7 @@ function NavBarIn() {
                   href="/wishlist"
                   // className="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
                 >
-                  <span className="hidden lg:inline text-2xl hover:text-blue-500">
+                  <span className=" text-2xl hover:text-blue-500">
                     <FiHeart />
                   </span>
                 </Link>
@@ -66,7 +66,7 @@ function NavBarIn() {
                   href="/cart"
                   // className="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
                 >
-                  <span className="hidden lg:inline text-2xl hover:text-blue-500">
+                  <span className="text-2xl hover:text-blue-500">
                     <Badge
                       badgeContent={cart.cartTotalQuantity}
                       color="primary"
@@ -81,7 +81,7 @@ function NavBarIn() {
                 >
                   {/* <i className="text-gray-400 w-5 fa fa-user"></i> */}
                   <span
-                    className="hidden lg:inline text-3xl hover:text-blue-500"
+                    className=" text-3xl hover:text-blue-500"
                     onClick={HandleLogout}
                   >
                     <PiSignOut />

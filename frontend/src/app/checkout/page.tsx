@@ -1,14 +1,20 @@
 "use client";
+import { useAppSelector } from "@/redux/store/hooks";
 import React from "react";
 
 function Checkout() {
+  const cart = useAppSelector((state) => state.cart);
+  console.log(cart);
   return (
     <div>
-      <div className="text-center my-5 text-xl text-blue-700">
-        {" "}
-        Enter delivery address:{" "}
-      </div>
-      <main className="flex justify-center drop-shadow-lg drop-shadow-lg dark:bg-dark my-5 ">
+      <section className="mt-2 py-2 bg-blue-100">
+        <div className="container max-w-screen-xl mx-auto px-4">
+          <h2 className="flex justify-center items-center text-xl my-2">
+            Enter Delivery Address
+          </h2>
+        </div>
+      </section>
+      <main className="flex justify-center drop-shadow-lg drop-shadow-lg dark:bg-dark py-10 mb-24 ">
         <div className="flex justify-center ">
           <div className="w-1/2 border-2 border-gray-900/10 rounded-lg dark:bg-gray-800 p-8 ">
             <form>

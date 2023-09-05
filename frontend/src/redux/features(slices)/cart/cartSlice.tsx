@@ -20,6 +20,7 @@ type InitialState = {
   cartTotalQuantity: number;
   cartTotalAmount: number;
   cartTotalTax: number;
+  cartTotalAfterTax: number;
 };
 
 const initialState = {
@@ -29,6 +30,7 @@ const initialState = {
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
   cartTotalTax: 0,
+  cartTotalAfterTax: 0,
 } as InitialState;
 
 const CartSlice = createSlice({
@@ -51,7 +53,7 @@ const CartSlice = createSlice({
         toast.info(`${action.payload.name} added to cart`);
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      localStorage.setItem("cartItems Qty", state.cartQuantity);
+      // localStorage.setItem("cartItems Qty", state.cartQuantity);
       console.log(state);
     },
     removeFromCart(state, action: PayloadAction<Iitems>) {
@@ -108,6 +110,7 @@ const CartSlice = createSlice({
       state.cartTotalQuantity = quantity;
       state.cartTotalAmount = total;
       state.cartTotalTax = tax;
+      state.cartTotalAfterTax = state.cartTotalAmount + state.cartTotalTax;
     },
   },
 });

@@ -11,8 +11,6 @@ function SignUp() {
   const [password2, setPassword2] = useState("");
   const [fName, setFname] = useState("");
   const [email, setEmail] = useState("");
-  // const [country, setCountry] = useState("");
-  const [street, setStreet] = useState("");
   const [pError, setPError] = useState("");
   const [eError, setEError] = useState("");
 
@@ -34,7 +32,6 @@ function SignUp() {
     const emailFormat = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
     if (!password || !password2 || !fName || !email) {
       toast.error("Please input all starred fields");
-
       return;
     } else if (!emailFormat.test(email)) {
       setEError("Invalid email.");

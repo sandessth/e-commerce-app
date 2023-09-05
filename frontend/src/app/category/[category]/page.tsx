@@ -1,12 +1,17 @@
 "use client";
+import { addToCart } from "@/redux/features(slices)/cart/cartSlice";
 import {
   useGetAllProductsQuery,
   useGetProductQuery,
 } from "@/redux/features(slices)/products/productsApi";
+import { addToWishList } from "@/redux/features(slices)/wishlist/wishListSlice";
 import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { BsCart } from "react-icons/Bs";
 import { FiHeart } from "react-icons/Fi";
+import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
 
 function CategoryPage() {
   const { category } = useParams();
@@ -14,6 +19,8 @@ function CategoryPage() {
   const { data, error, isLoading } = useGetAllProductsQuery();
   console.log(data);
   let filteredData = [];
+  const dispatch = useDispatch();
+  const router = useRouter();
 
   const HandleAddToWishList = (products) => {
     const token = localStorage.getItem("token");
@@ -25,13 +32,7 @@ function CategoryPage() {
     }
   };
   const HandleAddToCart = (products) => {
-    const token = localStorage.getItem("token");
-
-    if (token) {
-      dispatch(addToCart(products));
-    } else {
-      toast.error("Please signin to add products to cart.");
-    }
+    dispatch(addToCart(products));
   };
 
   const HandleProduct = (id: number) => {
@@ -43,7 +44,7 @@ function CategoryPage() {
   } else if (error) {
     console.error("Error fetching data:", error);
   } else if (data) {
-    filteredData = data.filter((product) => product.category === category);
+    filteredData = data?.filter((product) => product.category === category);
     console.log(filteredData);
   }
   return isLoading ? (
@@ -52,7 +53,9 @@ function CategoryPage() {
     <div className="flex justify-center text-2xl m-2 mt-4">error loading</div>
   ) : (
     <>
-      <div className="text-2xl flex justify-center m-3">Featured Products</div>
+      <div className="text-2xl flex justify-center m-3 mt-9">
+        Top searches for {category}
+      </div>
       <div className="grid grid-cols-2 gap-3 m-10 md:grid-cols-3 lg:grid-cols-5">
         {filteredData?.map((products) => (
           <div key={products.id} className=" border border-black/20 rounded-lg">
@@ -71,7 +74,7 @@ function CategoryPage() {
             {/* <div className="text-sm mx-5 my-2 text-green-500">
               Free Shipping
             </div> */}
-            <div className="mx-5 mb-5 mt-2 flex justify-between items-center">
+            <div className="mx-5 mb-5 mt-2 flex justify-between items-center flex-wrap">
               <div
                 className="text-slate-900/80 text-white hover:backdrop-lg group relative border border-black/10 px-2 py-2 rounded-lg bg-blue-600"
                 onClick={() => HandleAddToCart(products)}
@@ -98,7 +101,7 @@ function CategoryPage() {
         ))}
         <div className="col-span-1"></div>
       </div>
-      {/* <ToastContainer position={toast.POSITION.TOP_CENTER} /> */}
+      <ToastContainer position={toast.POSITION.TOP_CENTER} />
     </>
   );
 }

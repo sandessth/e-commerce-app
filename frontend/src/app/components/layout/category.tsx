@@ -11,7 +11,7 @@ function Category() {
   // const { data1, error1, isLoading1 } = useGetAllProductsQuery();
   // console.log(data1);
   const HandleCat = (category: string) => {
-    console.log(data);
+    // console.log(data);
     router.push(`/category/${category}`);
   };
 
@@ -44,18 +44,16 @@ function Category() {
 
       <div
         id="d"
-        className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+        className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
       >
         {data?.map((category) => (
           <div onClick={() => HandleCat(category)}>
             <ul
-              className="py-2 text-sm dark:text-gray-200"
+              className="py-2 text-sm hover:bg-gray-100"
               aria-labelledby="dropdownHoverButton"
             >
               <li>
-                <button className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                  {category}
-                </button>
+                <button className="block px-4 py-2 ">{category}</button>
               </li>
             </ul>
           </div>

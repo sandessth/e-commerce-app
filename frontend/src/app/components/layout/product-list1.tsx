@@ -2,8 +2,8 @@
 import { addToCart } from "@/redux/features(slices)/cart/cartSlice";
 import { useGetAllProductsQuery } from "@/redux/features(slices)/products/productsApi";
 import { addToWishList } from "@/redux/features(slices)/wishlist/wishListSlice";
-import { useAppDispatch } from "@/redux/store/hooks";
-import Link from "next/link";
+// import { useAppDispatch } from "@/redux/store/hooks";
+// import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { BsCart } from "react-icons/Bs";
 import { FiHeart } from "react-icons/Fi";
@@ -22,7 +22,7 @@ function ProductList1() {
     if (token) {
       dispatch(addToWishList(products));
     } else {
-      toast.error("Please signin to add products to cart.");
+      toast.error("Please signin to add products to wishlist.");
     }
   };
   const HandleAddToCart = (products) => {
@@ -50,7 +50,7 @@ function ProductList1() {
         {data?.map((products) => (
           <div key={products.id} className=" border border-black/20 rounded-lg">
             <div onClick={() => HandleProduct(products.id)}>
-              <span className="text-lg flex justify-center p-3">
+              <span className="text-md flex justify-center p-3 lg:text-lg">
                 {products.name}
               </span>
 
@@ -64,7 +64,7 @@ function ProductList1() {
             {/* <div className="text-sm mx-5 my-2 text-green-500">
               Free Shipping
             </div> */}
-            <div className="mx-5 mb-5 mt-2 flex justify-between items-center">
+            <div className="mx-5 mb-5 mt-2 flex justify-between items-center flex-wrap">
               <div
                 className="text-slate-900/80 text-white hover:backdrop-lg group relative border border-black/10 px-2 py-2 rounded-lg bg-blue-600"
                 onClick={() => HandleAddToCart(products)}
