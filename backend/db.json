@@ -167,6 +167,18 @@
       "color": "Black",
       "model": "UQ75",
       "id": 9
+    },
+    {
+      "name": "Apple - iPhone 14 128GB ",
+      "description": "iPhone 14. With the most impressive dual-camera system on iPhone. Capture stunning photos in low light and bright light. Get peace of mind with groundbreaking safety features, 6.1-inch Super Retina XDR display¹, Advanced camera system for better photos in any light",
+      "price": "1199",
+      "category": "Smartphone",
+      "seller": "Apple",
+      "stock": "2",
+      "image": "https://res.cloudinary.com/drohie0z8/image/upload/v1693923660/infamy/Screenshot_2023-09-05_at_7.20.40_AM_anest7.png",
+      "color": "Black",
+      "Model": "blah",
+      "id": 10
     }
   ],
   "category": [

@@ -64,10 +64,10 @@ function SignIn() {
           <div>
             <form className="space-y-6">
               <div>
-                <div className="text-2xl text-slate-600 mb-5 flex justify-center">
+                <div className="text-2xl text-blue-600 mb-5 flex justify-center">
                   Sign In
                 </div>
-                <label className="block text-sm font-medium leading-6 text-gray-900 dark:text-slate-100">
+                <label className="block text-sm font-medium leading-6 text-gray-900 dark:text-blue-100">
                   Email Address
                 </label>
                 <div className="mt-2">
@@ -77,19 +77,19 @@ function SignIn() {
                     type="email"
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
-                    className="block w-full dark:bg-slate-200/20 dark:text-slate-100 rounded-md py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-100"
+                    className="block w-full dark:bg-blue-200/20 dark:text-blue-100 rounded-md py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-100"
                   />
                 </div>
               </div>
               <div>
                 <div className="flex items-center justify-between">
-                  <label className="block text-sm font-medium leading-6 text-gray-900 dark:text-slate-100">
+                  <label className="block text-sm font-medium leading-6 text-gray-900 dark:text-blue-100">
                     Password
                   </label>
                   <div className="text-sm">
                     <a
                       href="#"
-                      className="font-semibold text-slate-600 hover:text-slate-500"
+                      className="font-semibold text-blue-600 hover:text-blue-500"
                     >
                       Forgot Password?
                     </a>
@@ -102,7 +102,7 @@ function SignIn() {
                     type="password"
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
-                    className="block w-full rounded-md border-0 dark:bg-slate-200/20 dark:text-slate-100 py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 dark:bg-blue-200/20 dark:text-blue-100 py-1.5 px-1 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -110,18 +110,18 @@ function SignIn() {
                 <button
                   type="submit"
                   onClick={handleLogin}
-                  className="flex w-full justify-center rounded-md bg-slate-600 px-3 py-1.5 mt-10 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600"
+                  className="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 mt-10 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600"
                 >
                   Sign In
                 </button>
               </div>
             </form>
             <div className="sm:mx-auto sm:w-full sm:max-w-sm pt-6">
-              <p className=" text-center text-sm text-gray-500 px-6 py-6 dark:text-slate-100">
+              <p className=" text-center text-sm text-gray-500 px-6 py-6 dark:text-blue-100">
                 Not a member yet?&nbsp;
                 <a
                   href="/signup"
-                  className="font-semibold leading-6 text-l text-slate-600 hover:text-slate-500 ml-2 mr-2"
+                  className="font-semibold leading-6 text-l text-blue-600 hover:text-blue-500 ml-2 mr-2"
                 >
                   Sign Up and Explore The World of Wonders.
                 </a>

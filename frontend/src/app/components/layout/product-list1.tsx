@@ -45,7 +45,7 @@ function ProductList1() {
     <div className="flex justify-center text-2xl m-2 mt-4">error loading</div>
   ) : (
     <>
-      <div className="text-2xl flex justify-center m-3">Featured Products</div>
+      <div className="text-2xl flex justify-center m-3">Top Products</div>
       <div className="grid grid-cols-2 gap-3 m-10 md:grid-cols-3 lg:grid-cols-5">
         {data?.map((products) => (
           <div key={products.id} className=" border border-black/20 rounded-lg">
