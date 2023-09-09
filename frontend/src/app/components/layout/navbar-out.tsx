@@ -2,6 +2,10 @@ import Link from "next/link";
 import React from "react";
 import SearchBar from "./searchbar";
 import { PiSignIn } from "react-icons/Pi";
+import { PiSignOut } from "react-icons/Pi";
+import { BiSearch } from "react-icons/Bi";
+import { BsCart } from "react-icons/Bs";
+import { FiHeart } from "react-icons/Fi";
 
 function NavBarOut() {
   return (
@@ -36,18 +40,50 @@ function NavBarOut() {
             Cart (<b>0</b>)
           </span>
         </Link> */}
-                <Link
-                  href="/signin"
-                  // className="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
-                >
-                  {/* <i className="text-gray-400 w-5 fa fa-user"></i> */}
-                  <span className="hidden lg:inline text-3xl hover:text-blue-500">
-                    <PiSignIn />
+                <div className="flex justify-between items-center">
+                  <div
+                    // onClick={() => setSearchSection(!searchSection)}
+                    className="text-slate-900/80 text-xl hover:text-blue-500 hover:backdrop-lg group relative pl-16"
+                  >
+                    <BiSearch />
+                    <div className="hidden text-sm p-1 rounded-lg text-white group-hover:block absolute top-8 right-0 bg-gray-500/80">
+                      Search
+                    </div>
+                  </div>
+                  <p className="text-slate-100/80  hover:backdrop-lg px-3">|</p>
+                  <Link
+                    href="/signin"
+                    className="text-slate-900/80 text-xl hover:text-blue-500 hover:backdrop-lg group relative"
+                    // onClick={HandleLogout}
+                  >
+                    <FiHeart />
+                    <div className="hidden text-sm p-1 rounded-lg text-white group-hover:block absolute top-8 right-0 bg-gray-500/80">
+                      Wishlist
+                    </div>
+                  </Link>
+                  <p className="text-slate-100/80  hover:backdrop-lg px-3">|</p>
+                  <Link
+                    href="/signin"
+                    className="text-slate-900/80 text-xl hover:text-blue-500 hover:backdrop-lg group relative"
+                    // onClick={HandleLogout}
+                  >
+                    <BsCart />
+                    <div className="hidden text-sm p-1 rounded-lg text-white group-hover:block absolute top-8 right-0 bg-gray-500/80">
+                      Cart
+                    </div>
+                  </Link>
+                  <p className="text-slate-100/80  hover:backdrop-lg px-3">|</p>
+                  <Link
+                    href="/signin"
+                    className="text-slate-900/80 text-xl font-bold hover:text-blue-500 hover:backdrop-lg group relative"
+                    // onClick={HandleLogout}
+                  >
+                    <PiSignOut />
                     <div className="hidden text-sm font-normal p-1 rounded-lg text-white group-hover:block absolute top-8 right-0 bg-gray-500/80">
                       SignOut
                     </div>
-                  </span>
-                </Link>
+                  </Link>
+                </div>
                 {/* <Link href="/me">
           <div className="flex items-center mb-4 space-x-3 mt-4 cursor-pointer group relative">
             
