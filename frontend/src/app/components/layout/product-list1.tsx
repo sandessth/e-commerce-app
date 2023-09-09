@@ -42,7 +42,19 @@ function ProductList1() {
   return isLoading ? (
     <div>Loading...</div>
   ) : error ? (
-    <div className="flex justify-center text-2xl m-2 mt-4">error loading</div>
+    <div className="flex justify-center">
+      <div className="w-2/3">
+        <div className=" text-slate-900/80 text-xl hover:text-blue-500 hover:backdrop-lg group relative ">
+          <div className="border-2 flex justify-center items-center text-md m-3 text-gray-500 my-24 h-96 flex-col">
+            error loading data from server
+            <div className="flex justify-center m-3 items-center text-gray-500 hover:text-gray-900">
+              {/* <BiArrowBack /> &nbsp;Start Shopping */}
+            </div>
+          </div>
+        </div>
+        {/* <ProductList1 /> */}
+      </div>
+    </div>
   ) : (
     <>
       <div className="text-2xl flex justify-center m-3">Top Products</div>
